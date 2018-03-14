@@ -9,10 +9,10 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
 
-public class Main {
+class ImageProcessor {
 	final public static int GREY_SCALE_RANGE = 256;
 	
-	public static void grayscale(String filename) {
+	public static void grayscale(String filename, String outputLabel) {
         BufferedImage image = null;
         try{
         	image = ImageIO.read(new File(filename)); // read image
@@ -21,13 +21,13 @@ public class Main {
         }
         int[][] oriGreyMatrix = getGreyMatrix(image);
         int[] oriGreyCounts = getGreyCounts(oriGreyMatrix);	
-        outputImage("d:/grey_ori.jpg", "png", getGreyImage(oriGreyMatrix));
-        outputImage("d:/hist_ori.jpg", "png", getHist(oriGreyCounts));
+        outputImage("d:/grey_" + outputLabel + ".png", "png", getGreyImage(oriGreyMatrix));
+        outputImage("d:/hist_" + outputLabel + ".png", "png", getHist(oriGreyCounts));
 	}
 	
 	
 	/** task 1 **/
-	public static void histogramCorrection(String filename, int partNum) {
+	public static void histogramCorrection(String filename, String outputLabel, int partNum) {
         BufferedImage image = null;
         try{
         	image = ImageIO.read(new File(filename)); // read image
@@ -39,14 +39,14 @@ public class Main {
         int[] greyTransMap = getGreyTransMap(greyCounts, partNum);
         greyMatrix = transGrey(greyMatrix, greyTransMap);
         greyCounts = getGreyCounts(greyMatrix);
-        outputImage("d:/grey_cor.jpg", "png", getGreyImage(greyMatrix));
-        outputImage("d:/hist_cor.jpg", "png", getHist(greyCounts));          
+        outputImage("d:/grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+        outputImage("d:/hist_" + outputLabel + ".png", "png", getHist(greyCounts));          
 	}
 	
 	
 	/** task 2 **/
 	// @REQUIRES: valid scale
-	public static void globalStretch(String filename, int lowerScale, int upperScale) {
+	public static void globalStretch(String filename, String outputLabel, int lowerScale, int upperScale) {
         BufferedImage image = null;
         try{
         	image = ImageIO.read(new File(filename)); // read image
@@ -70,14 +70,14 @@ public class Main {
         	}
         }
         greyCounts = getGreyCounts(greyMatrix);
-        outputImage("d:/grey_str_glo.jpg", "png", getGreyImage(greyMatrix));
-        outputImage("d:/hist_str_glo.jpg", "png", getHist(greyCounts));
+        outputImage("d:/grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+        outputImage("d:/hist_" + outputLabel + ".png", "png", getHist(greyCounts));
 	}
 	
 	
 	/** task 2 **/
-	public static void localStretch
-			(String filename, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
+	public static void localStretch(String filename, String outputLabel, 
+			int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
         BufferedImage image = null;
         try{
         	image = ImageIO.read(new File(filename)); // read image
@@ -100,8 +100,8 @@ public class Main {
         	}
         }
         greyCounts = getGreyCounts(greyMatrix);
-        outputImage("d:/grey_str_loc.jpg", "png", getGreyImage(greyMatrix));
-        outputImage("d:/hist_str_loc.jpg", "png", getHist(greyCounts));
+        outputImage("d:/grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+        outputImage("d:/hist_" + outputLabel + ".png", "png", getHist(greyCounts));
 	}
 	
 	
@@ -238,7 +238,6 @@ public class Main {
         g2d.setPaint(Color.WHITE); // axis
         g2d.drawLine(frame - 5, height - frame + 1, weight - frame + 5, height - frame + 1);
         g2d.setPaint(Color.GREEN); // hist
-        
         double max = -1;  // find max value
         for (int i = 0; i < values.length; i++) {
         	max = (values[i] > max) ? values[i] : max;
@@ -247,16 +246,18 @@ public class Main {
         for(int i=0; i<values.length; i++) { // draw hist   
             int frequency = (int)(values[i] * rate);    
             g2d.drawLine(frame + i, height - frame, frame + i, height - frame - frequency);    
-        }    
-        g2d.setPaint(Color.RED);    
+        }      
         return graph;  
-	}  
+	}
+}
 
+
+public class Main {
 	public static void main(String[] args) {
 		String filename = "D:/input.jpg";
-		grayscale(filename);
-		histogramCorrection(filename, 2); 			// task 1
-		globalStretch(filename, 0, 255);			// task 2
-		localStretch(filename, 64, 190, 0, 255);	// task 2
+		ImageProcessor.grayscale(filename, "origin");
+		ImageProcessor.histogramCorrection(filename, "hist_cor_2", 2); 		// task 1
+		ImageProcessor.globalStretch(filename, "str_global", 0, 255);			// task 2
+		ImageProcessor.localStretch(filename, "str_local", 64, 190, 0, 255);	// task 2
 	}
 }
