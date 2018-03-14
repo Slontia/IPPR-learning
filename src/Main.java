@@ -12,7 +12,6 @@ import javax.imageio.stream.ImageOutputStream;
 public class Main {
 	final public static int GREY_SCALE_RANGE = 256;
 	
-	
 	public static void grayscale(String filename) {
         BufferedImage image = null;
         try{
@@ -28,28 +27,20 @@ public class Main {
 	
 	
 	/** task 1 **/
-	public static void histogramCorrection(String filename) {
+	public static void histogramCorrection(String filename, int partNum) {
         BufferedImage image = null;
         try{
         	image = ImageIO.read(new File(filename)); // read image
         }catch(Exception e){
             e.printStackTrace();
         }
-        
-        int[][] oriGreyMatrix = getGreyMatrix(image);
-        int[] oriGreyCounts = getGreyCounts(oriGreyMatrix);
-        
-        int[] greyTransMap = getGreyTransMap(oriGreyCounts);
-        int[][] corGreyMatrix = transGrey(oriGreyMatrix, greyTransMap);
-        int[] corGreyCounts = getGreyCounts(corGreyMatrix);
-        outputImage("d:/grey_cor.jpg", "png", getGreyImage(corGreyMatrix));
-        outputImage("d:/hist_cor.jpg", "png", getHist(corGreyCounts));          
-        
-        greyTransMap = getGreyIransMapOpt1(oriGreyCounts, 4);
-        corGreyMatrix = transGrey(oriGreyMatrix, greyTransMap);
-        corGreyCounts = getGreyCounts(corGreyMatrix);       
-        outputImage("d:/grey_opt1.jpg", "png", getGreyImage(corGreyMatrix));
-        outputImage("d:/hist_opt1.jpg", "png", getHist(corGreyCounts));  
+        int[][] greyMatrix = getGreyMatrix(image);
+        int[] greyCounts = getGreyCounts(greyMatrix);
+        int[] greyTransMap = getGreyTransMap(greyCounts, partNum);
+        greyMatrix = transGrey(greyMatrix, greyTransMap);
+        greyCounts = getGreyCounts(greyMatrix);
+        outputImage("d:/grey_cor.jpg", "png", getGreyImage(greyMatrix));
+        outputImage("d:/hist_cor.jpg", "png", getHist(greyCounts));          
 	}
 	
 	
@@ -62,12 +53,8 @@ public class Main {
         }catch(Exception e){
             e.printStackTrace();
         }
-        
         int[][] greyMatrix = getGreyMatrix(image);
         int[] greyCounts = getGreyCounts(greyMatrix);
-        // outputImage("d:/grey_ori.jpg", "png", getGreyImage(greyMatrix));
-        // outputImage("d:/hist_ori.jpg", "png", getHist(greyCounts));
-        
         int oriLowerScale, oriUpperScale;
         for (oriLowerScale = 0; 
         		greyCounts[oriLowerScale] == 0 && oriLowerScale < GREY_SCALE_RANGE; 
@@ -97,12 +84,8 @@ public class Main {
         }catch(Exception e){
             e.printStackTrace();
         }
-        
         int[][] greyMatrix = getGreyMatrix(image);
-        int[] greyCounts = getGreyCounts(greyMatrix);
-        // outputImage("d:/grey_ori.jpg", "png", getGreyImage(greyMatrix));
-        // outputImage("d:/hist_ori.jpg", "png", getHist(greyCounts));
-        
+        int[] greyCounts = getGreyCounts(greyMatrix); 
         double rate = (double)(upperScale - lowerScale) / (double)(oriUpperScale - oriLowerScale);
         for (int i = 0; i < greyMatrix.length; i++) {
         	for (int j = 0; j < greyMatrix[i].length; j++) {
@@ -114,8 +97,6 @@ public class Main {
         		} else if (grey > oriUpperScale) {
         			greyMatrix[i][j] = upperScale;
         		}
-        			
-        		
         	}
         }
         greyCounts = getGreyCounts(greyMatrix);
@@ -152,23 +133,7 @@ public class Main {
 	
 	
 	// returns transforming map for grey scale in histogram correction
-	private static int[] getGreyTransMap(int[] greyCounts) {
-		int sum = 0;
-		if (greyCounts.length != GREY_SCALE_RANGE) return null;
-		for (int i = 0; i < GREY_SCALE_RANGE; sum += greyCounts[i++]);
-		
-		int[] greyTransMap = new int[GREY_SCALE_RANGE];
-		int curSum = 0;
-		for (int i = 0; i < GREY_SCALE_RANGE; i++) {
-			curSum += greyCounts[i];
-			greyTransMap[i] = (GREY_SCALE_RANGE - 1) * curSum / sum;
-		}
-		return greyTransMap;
-	}
-	
-	
-	// the 1st optimization of creating transforming map for grey scale in histogram correction
-	private static int[] getGreyIransMapOpt1(int[] greyCounts, int partNum) {
+	private static int[] getGreyTransMap(int[] greyCounts, int partNum) {
 		int sum = 0;
 		if (greyCounts.length != GREY_SCALE_RANGE) return null;		
 		for (int i = 0; i < GREY_SCALE_RANGE; sum += greyCounts[i++]);
@@ -177,50 +142,30 @@ public class Main {
 		int[] cuts = new int[partNum];
 		int[] partSums = new int[partNum];
 		int curSum = 0, excSum = 0;
-		int realPartNum = 0;
+		int curPartNum = 0;
+		
 		for (int i = 0; i < GREY_SCALE_RANGE; i++) { // get intervals
 			curSum += greyCounts[i];
-			if (curSum + excSum >= avgPartSum) {
-				cuts[realPartNum] = i;
-				partSums[realPartNum] = curSum;
-				realPartNum++;
-				excSum = (curSum + excSum) % avgPartSum;
+			while (curSum + excSum >= avgPartSum && curPartNum < partNum - 1) { // may jumps over several cuts
+				cuts[curPartNum] = i;
+				partSums[curPartNum] = curSum;
+				excSum = curSum + excSum - avgPartSum;
+				curPartNum++;
 				curSum = 0;
 			}
 		}
+		cuts[partNum - 1] = GREY_SCALE_RANGE - 1; // record the last cuts
+		partSums[partNum - 1] = curSum;
+		
 		int[] greyTransMap = new int[GREY_SCALE_RANGE]; // fill transMap
 		int baseGreyScale = 0;
-		for (int i = 0; i < realPartNum; i++) {
+		for (int i = 0; i < partNum; i++) {
 			curSum = 0;
 			for (int j = baseGreyScale; j <= cuts[i]; j++) {
 				curSum += greyCounts[j];
 				greyTransMap[j] = baseGreyScale + (cuts[i] - baseGreyScale) * curSum / partSums[i];
 			}
 			baseGreyScale = cuts[i] + 1;
-		}
-		return greyTransMap;
-	}
-	
-	
-	// the 2nd optimization of creating transforming map for grey scale in histogram correction
-	// (not good)
-	private static int[] getGreyIransMapOpt2(int[] greyCounts, int partNum) {
-		if (greyCounts.length != GREY_SCALE_RANGE) return null;
-		int[] greyTransMap = new int[GREY_SCALE_RANGE];
-		int interval = GREY_SCALE_RANGE / partNum;
-		int baseGreyScale = 0;
-		while (baseGreyScale + interval <= GREY_SCALE_RANGE) {
-			int sum = 0, curSum = 0;
-			for (int i = 0; 
-					i < interval && baseGreyScale + i < GREY_SCALE_RANGE; 
-					sum += greyCounts[i++]); // get sum
-			if (sum != 0) {
-				for (int i = 0; i < interval && baseGreyScale + i < GREY_SCALE_RANGE; i++) { // fill transMap
-					curSum += greyCounts[i];
-					greyTransMap[baseGreyScale + i] = baseGreyScale + (interval - 1) * curSum / sum;
-				}
-			}
-			baseGreyScale += interval;
 		}
 		return greyTransMap;
 	}
@@ -308,9 +253,10 @@ public class Main {
 	}  
 
 	public static void main(String[] args) {
-		grayscale("D:/input.jpg");
-		histogramCorrection("D:/input.jpg"); 				// task 1
-		globalStretch("D:/input.jpg", 0, 255);				// task 2
-		localStretch("D:/input.jpg", 64, 190, 0, 255);		// task 2
+		String filename = "D:/input.jpg";
+		grayscale(filename);
+		histogramCorrection(filename, 2); 			// task 1
+		globalStretch(filename, 0, 255);			// task 2
+		localStretch(filename, 64, 190, 0, 255);	// task 2
 	}
 }
