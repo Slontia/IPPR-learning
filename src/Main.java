@@ -92,9 +92,9 @@ class ImageProcessor {
         		int grey = greyMatrix[i][j];
         		if (grey >= oriLowerScale && grey <= oriUpperScale) {
         			greyMatrix[i][j] = (int)(rate * (grey - oriLowerScale) + lowerScale);
-        		} else if (grey < oriLowerScale) {
+        		} else if (lowerScale < grey && grey < oriLowerScale) {
         			greyMatrix[i][j] = lowerScale;
-        		} else if (grey > oriUpperScale) {
+        		} else if (upperScale > grey && grey > oriUpperScale) {
         			greyMatrix[i][j] = upperScale;
         		}
         	}
@@ -258,6 +258,6 @@ public class Main {
 		ImageProcessor.grayscale(filename, "origin");
 		ImageProcessor.histogramCorrection(filename, "hist_cor_2", 2); 		// task 1
 		ImageProcessor.globalStretch(filename, "str_global", 0, 255);			// task 2
-		ImageProcessor.localStretch(filename, "str_local", 64, 190, 0, 255);	// task 2
+		ImageProcessor.localStretch(filename, "str_local", 0, 50, 200, 255);	// task 2
 	}
 }
