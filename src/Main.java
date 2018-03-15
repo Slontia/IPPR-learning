@@ -21,8 +21,8 @@ class ImageProcessor {
         }
         int[][] oriGreyMatrix = getGreyMatrix(image);
         int[] oriGreyCounts = getGreyCounts(oriGreyMatrix);	
-        outputImage("d:/grey_" + outputLabel + ".png", "png", getGreyImage(oriGreyMatrix));
-        outputImage("d:/hist_" + outputLabel + ".png", "png", getHist(oriGreyCounts));
+        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(oriGreyMatrix));
+        outputImage("hist_" + outputLabel + ".png", "png", getHist(oriGreyCounts));
 	}
 	
 	
@@ -39,8 +39,8 @@ class ImageProcessor {
         int[] greyTransMap = getGreyTransMap(greyCounts, partNum);
         greyMatrix = transGrey(greyMatrix, greyTransMap);
         greyCounts = getGreyCounts(greyMatrix);
-        outputImage("d:/grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
-        outputImage("d:/hist_" + outputLabel + ".png", "png", getHist(greyCounts));          
+        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+        outputImage("hist_" + outputLabel + ".png", "png", getHist(greyCounts));          
 	}
 	
 	
@@ -70,8 +70,8 @@ class ImageProcessor {
         	}
         }
         greyCounts = getGreyCounts(greyMatrix);
-        outputImage("d:/grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
-        outputImage("d:/hist_" + outputLabel + ".png", "png", getHist(greyCounts));
+        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+        outputImage("hist_" + outputLabel + ".png", "png", getHist(greyCounts));
 	}
 	
 	
@@ -100,8 +100,8 @@ class ImageProcessor {
         	}
         }
         greyCounts = getGreyCounts(greyMatrix);
-        outputImage("d:/grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
-        outputImage("d:/hist_" + outputLabel + ".png", "png", getHist(greyCounts));
+        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+        outputImage("hist_" + outputLabel + ".png", "png", getHist(greyCounts));
 	}
 	
 	
@@ -176,8 +176,9 @@ class ImageProcessor {
 	    Iterator<ImageWriter> it = ImageIO.getImageWritersByFormatName(type);
 	    ImageWriter writer = it.next();
 	    ImageOutputStream ios;
+	    new File("output").mkdirs();
 		try {
-			ios = ImageIO.createImageOutputStream(new File(filename));
+			ios = ImageIO.createImageOutputStream(new File("output/" + filename));
 			writer.setOutput(ios);
 			writer.write(image);
 			image.flush();
@@ -256,8 +257,12 @@ public class Main {
 	public static void main(String[] args) {
 		String filename = "D:/input.jpg";
 		ImageProcessor.grayscale(filename, "origin");
+		ImageProcessor.histogramCorrection(filename, "hist_cor_1", 1); 		// task 1
 		ImageProcessor.histogramCorrection(filename, "hist_cor_2", 2); 		// task 1
-		ImageProcessor.globalStretch(filename, "str_global", 0, 255);			// task 2
-		ImageProcessor.localStretch(filename, "str_local", 0, 50, 200, 255);	// task 2
+		ImageProcessor.histogramCorrection(filename, "hist_cor_3", 3); 		// task 1
+		ImageProcessor.histogramCorrection(filename, "hist_cor_4", 4); 		// task 1
+		ImageProcessor.histogramCorrection(filename, "hist_cor_5", 5); 		// task 1
+		//ImageProcessor.globalStretch(filename, "str_global", 0, 255);			// task 2
+		//ImageProcessor.localStretch(filename, "str_local", 0, 50, 200, 255);	// task 2
 	}
 }
