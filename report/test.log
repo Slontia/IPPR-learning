@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.26)  15 MAR 2018 23:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.26)  17 MAR 2018 00:40
 entering extended mode
 **C:/Users/65486_000/Desktop/IPPR_report/test.tex
 (C:/Users/65486_000/Desktop/IPPR_report/test.tex
@@ -998,6 +998,30 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks19
 \@floatcapt=\box49
 )
+("D:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("D:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count193
+\Gm@cntv=\count194
+\c@Gm@tempcnt=\count195
+\Gm@bindingoffset=\dimen147
+\Gm@wd@mp=\dimen148
+\Gm@odd@mp=\dimen149
+\Gm@even@mp=\dimen150
+\Gm@layoutwidth=\dimen151
+\Gm@layoutheight=\dimen152
+\Gm@layouthoffset=\dimen153
+\Gm@layoutvoffset=\dimen154
+\Gm@dimlist=\toks20
+
+("D:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 ("D:\Program Files\MiKTeX 2.9\tex\latex\cjk\UTF8\UTF8.bdg"
 File: UTF8.bdg 2015/04/18 4.8.4
 )
@@ -1009,101 +1033,101 @@ File: UTF8.chr 2015/04/18 4.8.4
 ) (test.aux)
 \openout1 = `test.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 8.
+LaTeX Info: Redefining \selectfont on input line 11.
 
 ("D:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count193
-\scratchdimen=\dimen147
+\scratchcounter=\count196
+\scratchdimen=\dimen155
 \scratchbox=\box50
-\nofMPsegments=\count194
-\nofMParguments=\count195
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count196
-\MPscratchDim=\dimen148
-\MPnumerator=\count197
-\makeMPintoPDFobject=\count198
-\everyMPtoPDFconversion=\toks21
+\nofMPsegments=\count197
+\nofMParguments=\count198
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count199
+\MPscratchDim=\dimen156
+\MPnumerator=\count266
+\makeMPintoPDFobject=\count267
+\everyMPtoPDFconversion=\toks22
 ) ("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1152,233 +1176,443 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for C70+rm on input line 9.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 652.70622pt, 71.13188pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=652.70622pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Font Info:    Try loading font information for C70+rm on input line 12.
 ("D:\Program Files\MiKTeX 2.9\tex\latex\ctex\fd\c70rm.fd"
 File: c70rm.fd 2018/01/28 v2.4.12 Chinese font definition (CTEX)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12.045> on input line 9.
+(Font)              <12.045> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 9.
+(Font)              <8> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 9.
+(Font)              <6> on input line 12.
 Package CJKpunct Info: use punctuation spaces for family 'rm' with punctstyle (
-quanjiao) on input line 13.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
+quanjiao) on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.53937> on input line 19.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 19.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 19.
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.53937> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
-
-Overfull \hbox (0.721pt too wide) in paragraph at lines 12--28
-[]\OT1/cmr/m/n/10.53937 void his-togram-Cor-rec-tion(String file-name, String o
-ut-put-La-bel, int part-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--28
-
+Overfull \hbox (7.21284pt too wide) in paragraph at lines 15--34
+[] 
  []
 
 [1
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.53937> on input line 32.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 32.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 32.
-<lh_color.jpg, id=112, 536.0025pt x 301.125pt>
+<lh_color.jpg, id=138, 536.0025pt x 301.125pt>
 File: lh_color.jpg Graphic file (type jpg)
 <use lh_color.jpg>
-Package pdftex.def Info: lh_color.jpg  used on input line 42. on input line 42.
+Package pdftex.def Info: lh_color.jpg  used on input line 48. on input line 48.
 
-Package pdftex.def Info: Requested size: 165.59853pt x 93.03073pt on input line
- 42.
-<lh_grey.png, id=114, 536.0025pt x 301.125pt>
+Package pdftex.def Info: Requested size: 200.19054pt x 112.4667pt on input line
+ 48.
+<lh_grey.png, id=140, 536.0025pt x 301.125pt>
 File: lh_grey.png Graphic file (type png)
 <use lh_grey.png>
-Package pdftex.def Info: lh_grey.png  used on input line 44. on input line 44.
-Package pdftex.def Info: Requested size: 165.59853pt x 93.03073pt on input line
- 44.
- [2]
-<cas_grey.png, id=158, 1027.84pt x 578.16pt>
+Package pdftex.def Info: lh_grey.png  used on input line 50. on input line 50.
+Package pdftex.def Info: Requested size: 200.19054pt x 112.4667pt on input line
+ 50.
+<cas_grey.png, id=143, 1027.84pt x 578.16pt>
 File: cas_grey.png Graphic file (type png)
 <use cas_grey.png>
-Package pdftex.def Info: cas_grey.png  used on input line 59. on input line 59.
+Package pdftex.def Info: cas_grey.png  used on input line 65. on input line 65.
 
-Package pdftex.def Info: Requested size: 165.59853pt x 93.14267pt on input line
- 59.
-<cas_cor_1.png, id=159, 1027.84pt x 578.16pt>
+Package pdftex.def Info: Requested size: 200.19054pt x 112.604pt on input line 
+65.
+<cas_cor_1.png, id=144, 1027.84pt x 578.16pt>
 File: cas_cor_1.png Graphic file (type png)
 <use cas_cor_1.png>
-Package pdftex.def Info: cas_cor_1.png  used on input line 61. on input line 61
+Package pdftex.def Info: cas_cor_1.png  used on input line 67. on input line 67
 .
-Package pdftex.def Info: Requested size: 165.59853pt x 93.14267pt on input line
- 61.
-<cas_grey_hist.png, id=160, 296.10625pt x 240.9pt>
+Package pdftex.def Info: Requested size: 200.19054pt x 112.604pt on input line 
+67.
+<cas_grey_hist.png, id=145, 296.10625pt x 240.9pt>
 File: cas_grey_hist.png Graphic file (type png)
 <use cas_grey_hist.png>
-Package pdftex.def Info: cas_grey_hist.png  used on input line 63. on input lin
-e 63.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 63.
-<cas_cor_1_hist.png, id=162, 296.10625pt x 240.9pt>
+Package pdftex.def Info: cas_grey_hist.png  used on input line 69. on input lin
+e 69.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 69.
+<cas_cor_1_hist.png, id=147, 296.10625pt x 240.9pt>
 File: cas_cor_1_hist.png Graphic file (type png)
 <use cas_cor_1_hist.png>
-Package pdftex.def Info: cas_cor_1_hist.png  used on input line 65. on input li
-ne 65.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 65.
- [3 <./lh_color.jpg> <./lh_grey.png (PNG copy)>]
-<yuu_grey.png, id=186, 722.7pt x 451.6875pt>
+Package pdftex.def Info: cas_cor_1_hist.png  used on input line 71. on input li
+ne 71.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 71.
+ [2 <./lh_color.jpg> <./lh_grey.png (PNG copy)>]
+<yuu_grey.png, id=176, 722.7pt x 451.6875pt>
 File: yuu_grey.png Graphic file (type png)
 <use yuu_grey.png>
-Package pdftex.def Info: yuu_grey.png  used on input line 75. on input line 75.
+Package pdftex.def Info: yuu_grey.png  used on input line 81. on input line 81.
 
-Package pdftex.def Info: Requested size: 165.59853pt x 103.49997pt on input lin
-e 75.
-<yuu_cor_1.png, id=187, 722.7pt x 451.6875pt>
+Package pdftex.def Info: Requested size: 200.19054pt x 125.12076pt on input lin
+e 81.
+<yuu_cor_1.png, id=177, 722.7pt x 451.6875pt>
 File: yuu_cor_1.png Graphic file (type png)
 <use yuu_cor_1.png>
-Package pdftex.def Info: yuu_cor_1.png  used on input line 77. on input line 77
+Package pdftex.def Info: yuu_cor_1.png  used on input line 83. on input line 83
 .
-Package pdftex.def Info: Requested size: 165.59853pt x 103.49997pt on input lin
-e 77.
-<yuu_grey_hist.png, id=188, 296.10625pt x 240.9pt>
+Package pdftex.def Info: Requested size: 200.19054pt x 125.12076pt on input lin
+e 83.
+<yuu_grey_hist.png, id=178, 296.10625pt x 240.9pt>
 File: yuu_grey_hist.png Graphic file (type png)
 <use yuu_grey_hist.png>
-Package pdftex.def Info: yuu_grey_hist.png  used on input line 79. on input lin
-e 79.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 79.
-<yuu_cor_1_hist.png, id=189, 296.10625pt x 240.9pt>
+Package pdftex.def Info: yuu_grey_hist.png  used on input line 85. on input lin
+e 85.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 85.
+<yuu_cor_1_hist.png, id=179, 296.10625pt x 240.9pt>
 File: yuu_cor_1_hist.png Graphic file (type png)
 <use yuu_cor_1_hist.png>
-Package pdftex.def Info: yuu_cor_1_hist.png  used on input line 81. on input li
-ne 81.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 81.
- [4 <./cas_grey.png (PNG copy)> <./cas_cor_1.png (PNG copy)> <./cas_grey_hist.p
+Package pdftex.def Info: yuu_cor_1_hist.png  used on input line 87. on input li
+ne 87.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 87.
+ [3 <./cas_grey.png (PNG copy)> <./cas_cor_1.png (PNG copy)> <./cas_grey_hist.p
 ng> <./cas_cor_1_hist.png>]
-Overfull \hbox (9.96294pt too wide) in paragraph at lines 90--92
-[]\C70/rm/m/n/10.53937/50 G \C70/rm/m/n/10.53937/8b ¾ \C70/rm/m/n/10.53937/70 p
- \C70/rm/m/n/10.53937/5e ¦ \C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/52  
-\C70/rm/m/n/10.53937/6b µ \C70/rm/m/n/10.53937/65 p \C70/rm/m/n/10.53937/4e :$\
-OML/cmm/m/it/10.53937 p$|\C70/rm/m/n/10.53937/ff | \C70/rm/m/n/10.53937/99 – \
-C70/rm/m/n/10.53937/51 H \C70/rm/m/n/10.53937/91 Ç \C70/rm/m/n/10.53937/75 ( \C
-70/rm/m/n/10.53937/4e å  \C70/rm/m/n/10.53937/51 l \C70/rm/m/n/10.53937/5f  \
-C70/rm/m/n/10.53937/8b ¡ \C70/rm/m/n/10.53937/7b — \C70/rm/m/n/10.53937/51 ú \C
-70/rm/m/n/10.53937/5e s \C70/rm/m/n/10.53937/57 G \C70/rm/m/n/10.53937/6b Ï µ \
-C70/rm/m/n/10.53937/76 „ \C70/rm/m/n/10.53937/50 Ï \C70/rm/m/n/10.53937/7d   \C
-70/rm/m/n/10.53937/65 p$\OML/cmm/m/it/10.53937 n[]$|\C70/rm/m/n/10.53937/ff |
- []
+<rokkenjima_grey.png, id=194, 582.175pt x 436.63126pt>
+File: rokkenjima_grey.png Graphic file (type png)
+<use rokkenjima_grey.png>
+Package pdftex.def Info: rokkenjima_grey.png  used on input line 97. on input l
+ine 97.
+Package pdftex.def Info: Requested size: 200.19054pt x 150.13826pt on input lin
+e 97.
+<rokkenjima_cor_1.png, id=195, 582.175pt x 436.63126pt>
+File: rokkenjima_cor_1.png Graphic file (type png)
+<use rokkenjima_cor_1.png>
+Package pdftex.def Info: rokkenjima_cor_1.png  used on input line 99. on input 
+line 99.
+Package pdftex.def Info: Requested size: 200.19054pt x 150.13826pt on input lin
+e 99.
+<rokkenjima_grey_hist.png, id=196, 296.10625pt x 240.9pt>
+File: rokkenjima_grey_hist.png Graphic file (type png)
+<use rokkenjima_grey_hist.png>
+Package pdftex.def Info: rokkenjima_grey_hist.png  used on input line 101. on i
+nput line 101.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 101.
+<rokkenjima_cor_1_hist.png, id=197, 296.10625pt x 240.9pt>
+File: rokkenjima_cor_1_hist.png Graphic file (type png)
+<use rokkenjima_cor_1_hist.png>
+Package pdftex.def Info: rokkenjima_cor_1_hist.png  used on input line 103. on 
+input line 103.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 103.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--92
-
- []
-
-[5 <./yuu_grey.png (PNG copy)> <./yuu_cor_1.png (PNG copy)> <./yuu_grey_hist.pn
-g> <./yuu_cor_1_hist.png>]
+[4 <./yuu_grey.png (PNG copy)> <./yuu_cor_1.png (PNG copy)> <./yuu_grey_hist.pn
+g> <./yuu_cor_1_hist.png>] [5 <./rokkenjima_grey.png (PNG copy)> <./rokkenjima_
+cor_1.png (PNG copy)> <./rokkenjima_grey_hist.png> <./rokkenjima_cor_1_hist.png
+>]
 File: yuu_cor_1.png Graphic file (type png)
 <use yuu_cor_1.png>
-Package pdftex.def Info: yuu_cor_1.png  used on input line 102. on input line 1
-02.
-Package pdftex.def Info: Requested size: 165.59853pt x 103.49997pt on input lin
-e 102.
-<yuu_cor_2.png, id=219, 722.7pt x 451.6875pt>
+Package pdftex.def Info: yuu_cor_1.png  used on input line 122. on input line 1
+22.
+Package pdftex.def Info: Requested size: 200.19054pt x 125.12076pt on input lin
+e 122.
+<yuu_cor_2.png, id=216, 722.7pt x 451.6875pt>
 File: yuu_cor_2.png Graphic file (type png)
 <use yuu_cor_2.png>
-Package pdftex.def Info: yuu_cor_2.png  used on input line 104. on input line 1
-04.
-Package pdftex.def Info: Requested size: 165.59853pt x 103.49997pt on input lin
-e 104.
-<yuu_cor_3.png, id=220, 722.7pt x 451.6875pt>
+Package pdftex.def Info: yuu_cor_2.png  used on input line 124. on input line 1
+24.
+Package pdftex.def Info: Requested size: 200.19054pt x 125.12076pt on input lin
+e 124.
+<yuu_cor_3.png, id=217, 722.7pt x 451.6875pt>
 File: yuu_cor_3.png Graphic file (type png)
 <use yuu_cor_3.png>
-Package pdftex.def Info: yuu_cor_3.png  used on input line 106. on input line 1
-06.
-Package pdftex.def Info: Requested size: 165.59853pt x 103.49997pt on input lin
-e 106.
-<yuu_cor_4.png, id=221, 722.7pt x 451.6875pt>
+Package pdftex.def Info: yuu_cor_3.png  used on input line 126. on input line 1
+26.
+Package pdftex.def Info: Requested size: 200.19054pt x 125.12076pt on input lin
+e 126.
+<yuu_cor_4.png, id=218, 722.7pt x 451.6875pt>
 File: yuu_cor_4.png Graphic file (type png)
 <use yuu_cor_4.png>
-Package pdftex.def Info: yuu_cor_4.png  used on input line 108. on input line 1
-08.
-Package pdftex.def Info: Requested size: 165.59853pt x 103.49997pt on input lin
-e 108.
-<yuu_cor_5.png, id=222, 722.7pt x 451.6875pt>
+Package pdftex.def Info: yuu_cor_4.png  used on input line 128. on input line 1
+28.
+Package pdftex.def Info: Requested size: 200.19054pt x 125.12076pt on input lin
+e 128.
+<yuu_cor_5.png, id=219, 722.7pt x 451.6875pt>
 File: yuu_cor_5.png Graphic file (type png)
 <use yuu_cor_5.png>
-Package pdftex.def Info: yuu_cor_5.png  used on input line 110. on input line 1
-10.
-Package pdftex.def Info: Requested size: 165.59853pt x 103.49997pt on input lin
-e 110.
+Package pdftex.def Info: yuu_cor_5.png  used on input line 130. on input line 1
+30.
+Package pdftex.def Info: Requested size: 200.19054pt x 125.12076pt on input lin
+e 130.
 File: yuu_grey.png Graphic file (type png)
 <use yuu_grey.png>
-Package pdftex.def Info: yuu_grey.png  used on input line 112. on input line 11
+Package pdftex.def Info: yuu_grey.png  used on input line 132. on input line 13
 2.
-Package pdftex.def Info: Requested size: 165.59853pt x 103.49997pt on input lin
-e 112.
- [6]
+Package pdftex.def Info: Requested size: 200.19054pt x 125.12076pt on input lin
+e 132.
 File: yuu_cor_1_hist.png Graphic file (type png)
 <use yuu_cor_1_hist.png>
-Package pdftex.def Info: yuu_cor_1_hist.png  used on input line 120. on input l
-ine 120.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 120.
-<yuu_cor_2_hist.png, id=228, 296.10625pt x 240.9pt>
+Package pdftex.def Info: yuu_cor_1_hist.png  used on input line 139. on input l
+ine 139.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 139.
+<yuu_cor_2_hist.png, id=220, 296.10625pt x 240.9pt>
 File: yuu_cor_2_hist.png Graphic file (type png)
 <use yuu_cor_2_hist.png>
-Package pdftex.def Info: yuu_cor_2_hist.png  used on input line 122. on input l
-ine 122.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 122.
-<yuu_cor_3_hist.png, id=229, 296.10625pt x 240.9pt>
+Package pdftex.def Info: yuu_cor_2_hist.png  used on input line 141. on input l
+ine 141.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 141.
+<yuu_cor_3_hist.png, id=221, 296.10625pt x 240.9pt>
 File: yuu_cor_3_hist.png Graphic file (type png)
 <use yuu_cor_3_hist.png>
-Package pdftex.def Info: yuu_cor_3_hist.png  used on input line 124. on input l
-ine 124.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 124.
-<yuu_cor_4_hist.png, id=230, 296.10625pt x 240.9pt>
+Package pdftex.def Info: yuu_cor_3_hist.png  used on input line 143. on input l
+ine 143.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 143.
+<yuu_cor_4_hist.png, id=222, 296.10625pt x 240.9pt>
 File: yuu_cor_4_hist.png Graphic file (type png)
 <use yuu_cor_4_hist.png>
-Package pdftex.def Info: yuu_cor_4_hist.png  used on input line 126. on input l
-ine 126.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 126.
-<yuu_cor_5_hist.png, id=231, 296.10625pt x 240.9pt>
+Package pdftex.def Info: yuu_cor_4_hist.png  used on input line 145. on input l
+ine 145.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 145.
+<yuu_cor_5_hist.png, id=223, 296.10625pt x 240.9pt>
 File: yuu_cor_5_hist.png Graphic file (type png)
 <use yuu_cor_5_hist.png>
-Package pdftex.def Info: yuu_cor_5_hist.png  used on input line 128. on input l
-ine 128.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 128.
+Package pdftex.def Info: yuu_cor_5_hist.png  used on input line 147. on input l
+ine 147.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 147.
 File: yuu_grey_hist.png Graphic file (type png)
 <use yuu_grey_hist.png>
-Package pdftex.def Info: yuu_grey_hist.png  used on input line 130. on input li
-ne 130.
-Package pdftex.def Info: Requested size: 165.59853pt x 134.72662pt on input lin
-e 130.
- [7 <./yuu_cor_2.png (PNG copy)> <./yuu_cor_3.png (PNG copy)> <./yuu_cor_4.png 
+Package pdftex.def Info: yuu_grey_hist.png  used on input line 149. on input li
+ne 149.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 149.
+ [6 <./yuu_cor_2.png (PNG copy)> <./yuu_cor_3.png (PNG copy)> <./yuu_cor_4.png 
 (PNG copy)> <./yuu_cor_5.png (PNG copy)>]
-[8 <./yuu_cor_2_hist.png> <./yuu_cor_3_hist.png> <./yuu_cor_4_hist.png> <./yuu_
-cor_5_hist.png>] [9] (test.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
+
+ []
+
+File: rokkenjima_cor_1.png Graphic file (type png)
+<use rokkenjima_cor_1.png>
+Package pdftex.def Info: rokkenjima_cor_1.png  used on input line 158. on input
+ line 158.
+Package pdftex.def Info: Requested size: 200.19054pt x 150.13826pt on input lin
+e 158.
+<rokkenjima_cor_2.png, id=229, 582.175pt x 436.63126pt>
+File: rokkenjima_cor_2.png Graphic file (type png)
+<use rokkenjima_cor_2.png>
+Package pdftex.def Info: rokkenjima_cor_2.png  used on input line 160. on input
+ line 160.
+Package pdftex.def Info: Requested size: 200.19054pt x 150.13826pt on input lin
+e 160.
+<rokkenjima_cor_3.png, id=230, 582.175pt x 436.63126pt>
+File: rokkenjima_cor_3.png Graphic file (type png)
+<use rokkenjima_cor_3.png>
+Package pdftex.def Info: rokkenjima_cor_3.png  used on input line 162. on input
+ line 162.
+Package pdftex.def Info: Requested size: 200.19054pt x 150.13826pt on input lin
+e 162.
+<rokkenjima_cor_4.png, id=231, 582.175pt x 436.63126pt>
+File: rokkenjima_cor_4.png Graphic file (type png)
+<use rokkenjima_cor_4.png>
+Package pdftex.def Info: rokkenjima_cor_4.png  used on input line 164. on input
+ line 164.
+Package pdftex.def Info: Requested size: 200.19054pt x 150.13826pt on input lin
+e 164.
+<rokkenjima_cor_5.png, id=232, 582.175pt x 436.63126pt>
+File: rokkenjima_cor_5.png Graphic file (type png)
+<use rokkenjima_cor_5.png>
+Package pdftex.def Info: rokkenjima_cor_5.png  used on input line 166. on input
+ line 166.
+Package pdftex.def Info: Requested size: 200.19054pt x 150.13826pt on input lin
+e 166.
+File: rokkenjima_grey.png Graphic file (type png)
+<use rokkenjima_grey.png>
+Package pdftex.def Info: rokkenjima_grey.png  used on input line 168. on input 
+line 168.
+Package pdftex.def Info: Requested size: 200.19054pt x 150.13826pt on input lin
+e 168.
+[7 <./yuu_cor_2_hist.png> <./yuu_cor_3_hist.png> <./yuu_cor_4_hist.png> <./yuu_
+cor_5_hist.png>]
+File: rokkenjima_cor_1_hist.png Graphic file (type png)
+<use rokkenjima_cor_1_hist.png>
+Package pdftex.def Info: rokkenjima_cor_1_hist.png  used on input line 176. on 
+input line 176.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 176.
+<rokkenjima_cor_2_hist.png, id=243, 296.10625pt x 240.9pt>
+File: rokkenjima_cor_2_hist.png Graphic file (type png)
+<use rokkenjima_cor_2_hist.png>
+Package pdftex.def Info: rokkenjima_cor_2_hist.png  used on input line 178. on 
+input line 178.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 178.
+<rokkenjima_cor_3_hist.png, id=244, 296.10625pt x 240.9pt>
+File: rokkenjima_cor_3_hist.png Graphic file (type png)
+<use rokkenjima_cor_3_hist.png>
+Package pdftex.def Info: rokkenjima_cor_3_hist.png  used on input line 180. on 
+input line 180.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 180.
+<rokkenjima_cor_4_hist.png, id=245, 296.10625pt x 240.9pt>
+File: rokkenjima_cor_4_hist.png Graphic file (type png)
+<use rokkenjima_cor_4_hist.png>
+Package pdftex.def Info: rokkenjima_cor_4_hist.png  used on input line 182. on 
+input line 182.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 182.
+<rokkenjima_cor_5_hist.png, id=246, 296.10625pt x 240.9pt>
+File: rokkenjima_cor_5_hist.png Graphic file (type png)
+<use rokkenjima_cor_5_hist.png>
+Package pdftex.def Info: rokkenjima_cor_5_hist.png  used on input line 184. on 
+input line 184.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 184.
+File: rokkenjima_grey_hist.png Graphic file (type png)
+<use rokkenjima_grey_hist.png>
+Package pdftex.def Info: rokkenjima_grey_hist.png  used on input line 186. on i
+nput line 186.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 186.
+ [8 <./rokkenjima_cor_2.png (PNG copy)> <./rokkenjima_cor_3.png (PNG copy)> <./
+rokkenjima_cor_4.png (PNG copy)> <./rokkenjima_cor_5.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+
+ []
+
+[9 <./rokkenjima_cor_2_hist.png> <./rokkenjima_cor_3_hist.png> <./rokkenjima_co
+r_4_hist.png> <./rokkenjima_cor_5_hist.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+<lh_str_local.png, id=259, 536.0025pt x 301.125pt>
+File: lh_str_local.png Graphic file (type png)
+<use lh_str_local.png>
+Package pdftex.def Info: lh_str_local.png  used on input line 229. on input lin
+e 229.
+Package pdftex.def Info: Requested size: 200.19054pt x 112.4667pt on input line
+ 229.
+<lh_str_local_hist.png, id=260, 296.10625pt x 240.9pt>
+File: lh_str_local_hist.png Graphic file (type png)
+<use lh_str_local_hist.png>
+Package pdftex.def Info: lh_str_local_hist.png  used on input line 231. on inpu
+t line 231.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 231.
+<lh_str_piece.png, id=261, 536.0025pt x 301.125pt>
+File: lh_str_piece.png Graphic file (type png)
+<use lh_str_piece.png>
+Package pdftex.def Info: lh_str_piece.png  used on input line 233. on input lin
+e 233.
+Package pdftex.def Info: Requested size: 200.19054pt x 112.4667pt on input line
+ 233.
+<lh_str_piece_hist.png, id=262, 296.10625pt x 240.9pt>
+File: lh_str_piece_hist.png Graphic file (type png)
+<use lh_str_piece_hist.png>
+Package pdftex.def Info: lh_str_piece_hist.png  used on input line 235. on inpu
+t line 235.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 235.
+File: lh_grey.png Graphic file (type png)
+<use lh_grey.png>
+Package pdftex.def Info: lh_grey.png  used on input line 237. on input line 237
+.
+Package pdftex.def Info: Requested size: 200.19054pt x 112.4667pt on input line
+ 237.
+<lh_grey_hist.png, id=263, 296.10625pt x 240.9pt>
+File: lh_grey_hist.png Graphic file (type png)
+<use lh_grey_hist.png>
+Package pdftex.def Info: lh_grey_hist.png  used on input line 239. on input lin
+e 239.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 239.
+[10] [11 <./lh_str_local.png (PNG copy)> <./lh_str_local_hist.png> <./lh_str_pi
+ece.png (PNG copy)> <./lh_str_piece_hist.png> <./lh_grey_hist.png>]
+<cas_str_local.png, id=284, 1027.84pt x 578.16pt>
+File: cas_str_local.png Graphic file (type png)
+<use cas_str_local.png>
+Package pdftex.def Info: cas_str_local.png  used on input line 249. on input li
+ne 249.
+Package pdftex.def Info: Requested size: 200.19054pt x 112.604pt on input line 
+249.
+<cas_str_local_hist.png, id=285, 296.10625pt x 240.9pt>
+File: cas_str_local_hist.png Graphic file (type png)
+<use cas_str_local_hist.png>
+Package pdftex.def Info: cas_str_local_hist.png  used on input line 251. on inp
+ut line 251.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 251.
+File: cas_cor_1.png Graphic file (type png)
+<use cas_cor_1.png>
+Package pdftex.def Info: cas_cor_1.png  used on input line 253. on input line 2
+53.
+Package pdftex.def Info: Requested size: 200.19054pt x 112.604pt on input line 
+253.
+File: cas_cor_1_hist.png Graphic file (type png)
+<use cas_cor_1_hist.png>
+Package pdftex.def Info: cas_cor_1_hist.png  used on input line 255. on input l
+ine 255.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 255.
+File: cas_grey.png Graphic file (type png)
+<use cas_grey.png>
+Package pdftex.def Info: cas_grey.png  used on input line 257. on input line 25
+7.
+Package pdftex.def Info: Requested size: 200.19054pt x 112.604pt on input line 
+257.
+File: cas_grey_hist.png Graphic file (type png)
+<use cas_grey_hist.png>
+Package pdftex.def Info: cas_grey_hist.png  used on input line 259. on input li
+ne 259.
+Package pdftex.def Info: Requested size: 200.19054pt x 162.87248pt on input lin
+e 259.
+ [12 <./cas_str_local.png (PNG copy)> <./cas_str_local_hist.png>] [13] (test.au
+x) ) 
 Here is how much of TeX's memory you used:
- 15594 strings out of 493312
- 298355 string characters out of 3138887
- 309149 words of memory out of 3000000
- 18620 multiletter control sequences out of 15000+200000
- 584533 words of font info for 221 fonts, out of 3000000 for 9000
+ 16284 strings out of 493312
+ 309112 string characters out of 3138887
+ 318803 words of memory out of 3000000
+ 19278 multiletter control sequences out of 15000+200000
+ 585613 words of font info for 225 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,56p,10470b,285s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/windows/Fonts/simhei.ttf><C:/windows/Fonts
+ 42i,8n,56p,10470b,285s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts
 /simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simsun.ttc><C:/windo
 ws/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><
 C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/sims
@@ -1387,24 +1621,24 @@ nts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/wi
 ndows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.tt
 c><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/s
 imsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows
-/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:
-/windows/Fonts/simhei.ttf><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simhei
-.ttf><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Font
-s/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/wind
+/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:
+/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simhei
+.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simsun.ttc><C:/windows/Font
+s/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simsun.ttc><C:/wind
 ows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc>
 <C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/sim
-hei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/F
-onts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simsun.ttc><C:/w
-indows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simhei.t
-tf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/
-simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/window
+sun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/F
+onts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/w
+indows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.t
+tc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/
+simsun.ttc><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/window
 s/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C
-:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhe
-i.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simsun.ttc><C:/windows/Fon
-ts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/win
-dows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc
-><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/si
-msun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/
+:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simhe
+i.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fon
+ts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/win
+dows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf
+><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/si
+mhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simsun.ttc><C:/windows/
 Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/
 windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.
 ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts
@@ -1413,30 +1647,30 @@ ws/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><
 C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/sims
 un.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fo
 nts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/wi
-ndows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.tt
-c><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/s
+ndows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.tt
+f><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/s
 imhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows
 /Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:
 /windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei
 .ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Font
-s/simhei.ttf><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/simsun.ttc><C:/wind
+s/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/wind
 ows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc>
 <C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/sim
-sun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simsun.ttc><C:/windows/F
-onts/simsun.ttc><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
-x10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmr7.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sl10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
->
-Output written on test.pdf (9 pages, 1680754 bytes).
+sun.ttc><C:/windows/Fonts/simsun.ttc><D:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmex10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10
+.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr7.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsl10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb>
+Output written on test.pdf (13 pages, 2565200 bytes).
 PDF statistics:
- 655 PDF objects out of 1000 (max. 8388607)
+ 699 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 450 words of extra memory for PDF output out of 10000 (max. 10000000)
 
