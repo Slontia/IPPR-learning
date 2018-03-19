@@ -3,6 +3,8 @@
 \usepackage{subfigure}
 \usepackage{float}
 \usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{pgf, tikz}
 
 \geometry{left=2.0cm, right=2.0cm, top=2.5cm, bottom=2.5cm}
 \title{第一次技术文档}
@@ -15,6 +17,11 @@
 	\noindent
 	\textbf{使用语言：} JAVA \newline
 	\textbf{编程环境：} Windows 8.1 + Eclipse Neon.3 Release (4.6.3) \newline
+	\textbf{相关库：}\newline
+	\indent java.awt\newline
+	\indent java.io\newline
+	\indent java.util\newline
+	\indent javax.imageio\newline
 	\textbf{主要方法：} \newline
 	\begin{tabular}{p{10cm}p{7cm}}
 	\hline
@@ -31,6 +38,19 @@
 	void histogramCorrection(String outputLabel, int partNum) {..}&  给定分段数，对灰度图进行直方图均衡处理\\
 	\hline
 	\end{tabular}
+
+	\section{图片读取}
+	\subsection{BMP格式图片结构}
+	通过查找资料，了解了BMP位图文件的格式，括号里为该部分所占字节数：\newline
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{bmp_format.png}
+		\caption{BMP文件结构图示}
+		\end{figure}
+	\indent 在BMP文件中，像素点的颜色是用RGB或ARGB的形式记录的，其中A表示Alpha，代表像素点的透明度。在读取BMP文件的时候，应当考虑到位数、压缩类型等问题，而且目前主要的图像格式还有JPEG、PNG、GIF等，想要兼顾全部类型的图片是个比较复杂的工作。
+
+	\subsection{实际采用的读取方式}
+	在实际编码过程中，我使用了javax.imageio库读取图片文件，可以通过内置的方法获取各个像素的ARGB值，简化了这部分工作。
 
 	\section{准备工作：图片灰度化}
 		\subsection{实现过程}
@@ -56,6 +76,16 @@
 		\subsection{算法实现}
 		根据读取图像得到的灰度矩阵$M(w,h)$，可以计算出第$i$种灰度所占的像素数量$n_i$。假设灰度级为$L$（在该程序中，取$L=256$），则第$k$个灰度级均衡变换后的新灰度级$s_k$可由以下公式得到：
 		\[ s_k=(L-1)\sum_{i=0}^k\frac{n_i}{wh} \]
+
+		\subsection{主要步骤}
+			\begin{enumerate} [(1)]
+				\item 读取图片
+				\item 将图片转变为灰度矩阵
+				\item 根据灰度矩阵计算出各个灰度级的像素数量
+				\item 利用公式计算得到原灰度级与新灰度级的映射关系
+				\item 根据映射关系将原灰度矩阵转换为新灰度矩阵
+				\item 输出图片
+			\end{enumerate}
 
 		\subsection{处理效果}
 			\subsubsection{图片一}
@@ -219,6 +249,15 @@
 		\frac{Y_{max}-d}{Y_{max}-b} * (f(x,y)-b) + d & & ,{b < f(x,y) <= Y_{max}} \\
 		\end{array}\right.
 		\]
+
+		\subsection{主要步骤}
+			\begin{enumerate} [(1)]
+				\item 读取图片
+				\item 将图片转变为灰度矩阵
+				\item 根据提供的灰度级范围，得到原灰度级与新灰度级的映射关系
+				\item 根据映射关系将原灰度矩阵转换为新灰度矩阵
+				\item 输出图片
+			\end{enumerate}
 
 
 		\subsection{处理效果}
