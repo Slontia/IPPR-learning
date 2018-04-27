@@ -7,23 +7,23 @@ class LinearStretcher extends GreyTransformation {
 
 	/** API **/
 	// @REQUIRES: valid scale
-	public void globalStretch(String outputLabel, int lowerScale, int upperScale) {
+	public BufferedImage globalStretch(String outputLabel, int lowerScale, int upperScale) {
         int[] greyCounts = getGreyCounts(greyMatrix);
         int[] edgeScales = getEdgeGreyScale(greyCounts);
-        localStretch(outputLabel, edgeScales[0], edgeScales[1], lowerScale, upperScale);
+        return localStretch(outputLabel, edgeScales[0], edgeScales[1], lowerScale, upperScale);
 	}
 	
 	/** API **/
-	public void localStretch(String outputLabel, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
+	public BufferedImage localStretch(String outputLabel, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
         int[] greyTransMap = getGreyTransMap(oriLowerScale, oriUpperScale, lowerScale, upperScale);
-        outputResult(outputLabel, transGrey(greyMatrix, greyTransMap));
+        return outputResult(outputLabel, transGrey(greyMatrix, greyTransMap));
 	}
 	
 	/** API **/
-	public void piecewiseStretch(String outputLabel, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
+	public BufferedImage piecewiseStretch(String outputLabel, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
 		int[] greyCounts = getGreyCounts(greyMatrix);
         int[] greyTransMap = getPiecewiseGreyTransMap(oriLowerScale, oriUpperScale, lowerScale, upperScale, greyCounts);
-        outputResult(outputLabel, transGrey(greyMatrix, greyTransMap));
+        return outputResult(outputLabel, transGrey(greyMatrix, greyTransMap));
 	}
 	
 	private int[] getGreyTransMap(int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
@@ -54,10 +54,5 @@ class LinearStretcher extends GreyTransformation {
 				System.out.println("The World!!");
 			}
 		}
-	}
-	
-	private void outputResult(String outputLabel, int[][] greyMatrix) {
-        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
-        outputImage("hist_" + outputLabel + ".png", "png", getHist(getGreyCounts(greyMatrix)));
 	}
 }

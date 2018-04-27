@@ -77,7 +77,9 @@ class ImageProcessor {
 	}
 	
 	/** API **/
-	public void grayscale(String outputLabel) {
-		outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+	public BufferedImage grayscale(String outputLabel) {
+		BufferedImage image = getGreyImage(greyMatrix);
+		outputImage("grey_" + outputLabel + ".png", "png", image);
+		return image;
 	}
 }

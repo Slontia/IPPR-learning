@@ -6,12 +6,12 @@ class HistogramCorrector extends GreyTransformation {
 	}
 
 	/** API **/
-	public void histogramCorrection(String outputLabel, int partNum) {
+	public BufferedImage histogramCorrection(String outputLabel, int partNum) {
         int[] greyCounts = getGreyCounts(greyMatrix);
         int[] greyTransMap = getGreyTransMap(greyCounts, partNum);
         int[][] newGreyMatrix = transGrey(greyMatrix, greyTransMap);
         greyCounts = getGreyCounts(newGreyMatrix);
-        outputResult(outputLabel, newGreyMatrix);        
+        return outputResult(outputLabel, newGreyMatrix);        
 	}
 	
 	// returns transforming map for grey scale in histogram correction
@@ -50,10 +50,5 @@ class HistogramCorrector extends GreyTransformation {
 			baseGreyScale = cuts[i] + 1;
 		}
 		return greyTransMap;
-	}
-	
-	private void outputResult(String outputLabel, int[][] greyMatrix) {
-        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
-        outputImage("hist_" + outputLabel + ".png", "png", getHist(getGreyCounts(greyMatrix)));
 	}
 }

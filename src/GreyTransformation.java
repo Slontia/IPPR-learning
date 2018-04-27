@@ -67,4 +67,11 @@ public class GreyTransformation extends ImageProcessor {
         }      
         return graph;  
 	}
+	
+	protected BufferedImage outputResult(String outputLabel, int[][] greyMatrix) {
+		BufferedImage image = getGreyImage(greyMatrix);
+        outputImage("grey_" + outputLabel + ".png", "png", image);
+        outputImage("hist_" + outputLabel + ".png", "png", getHist(getGreyCounts(greyMatrix)));
+        return image;
+	}
 }

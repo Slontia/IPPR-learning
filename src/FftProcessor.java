@@ -173,8 +173,8 @@ class FftProcessor extends ImageProcessor {
 		rangeMatrix = translation(normalizeMatrix(rangeMatrix, GREY_SCALE_RANGE - 1), N, M);
 		powerMatrix = translation(normalizeMatrix(powerMatrix, GREY_SCALE_RANGE - 1), N, M);
 		phaseMatrix = translation(normalizeMatrix(phaseMatrix, GREY_SCALE_RANGE - 1), N, M);
-		outputImage("power.png", "png", getGreyImage(powerMatrix));
-		outputImage("range.png", "png", getGreyImage(rangeMatrix));
-		outputImage("phase.png", "png", getGreyImage(phaseMatrix));
+		outputImage("power_" + outputLabel + ".png", "png", getGreyImage(powerMatrix));
+		outputImage("range_" + outputLabel + ".png", "png", getGreyImage(rangeMatrix));
+		outputImage("phase_" + outputLabel + ".png", "png", getGreyImage(phaseMatrix));
 	}
 }
