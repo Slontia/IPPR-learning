@@ -66,7 +66,7 @@ class FFTProcessor extends SignalTransformation {
 		
 		if (inverseFlag == -1) {
 			for (int i = 0; i < N; i++) {
-				res[i] = res[i].divInt(N);
+				res[i] = res[i].div(N);
 			}
 		}
 		
@@ -145,15 +145,23 @@ class FFTProcessor extends SignalTransformation {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				greyMatrix[i][j] = (int) inverse[i][j].getReal();
+//				if (greyMatrix[i][j] > 255 || greyMatrix[i][j] < 0) {
+//					System.out.println(greyMatrix[i][j]);
+//				}
+//				if (inverse[i][j].getImag() > 1) {
+//					System.out.println(inverse[i][j].getImag());
+//				}
 			}
 		}
-		BufferedImage image = getGreyImage(greyMatrix);
+		
+		BufferedImage image = getGreyImage(normalizeMatrix(greyMatrix, GREY_SCALE_RANGE - 1));
 		outputImage("FFT_inverse_" + outputLabel + ".png", "png", image);
 		outputResult(outputLabel, sigs);
 		return image;
 	}
 	
 	private void outputResult(String outputLabel, FourierComplex[][] frequencyMatrix) {
+		
 		if (frequencyMatrix == null) {
 			return;
 		}

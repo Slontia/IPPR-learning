@@ -39,7 +39,13 @@ public class FourierComplex {
 				this.real * x.imag + this.imag * x.real);
 	}
 	
-	public FourierComplex divInt(int x) {
+	public FourierComplex mul(int x) {
+		return new FourierComplex(
+				this.real * x,
+				this.imag * x);
+	}
+	
+	public FourierComplex div(int x) {
 		return new FourierComplex(
 				this.real / x, 
 				this.imag / x);
