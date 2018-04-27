@@ -63,7 +63,6 @@ class LinearStretcher extends ImageProcessor {
 class HistogramCorrector extends ImageProcessor {
 	public HistogramCorrector(String filename) {
 		super(filename);
-		// TODO Auto-generated constructor stub
 	}
 
 	/** API **/
@@ -130,7 +129,7 @@ class FftProcessor extends ImageProcessor {
 		return res;
 	}
 	
-	public Complex[] fft2d(Complex[] sigs) {
+	public Complex[] fft1d(Complex[] sigs) {
 		// round signals
 		int len = sigs.length;
 		int N = roundPower(len);
@@ -177,8 +176,57 @@ class FftProcessor extends ImageProcessor {
 				}
 			}
 		}
-		
 		return res;
+	}
+	
+	public Complex[][] fft2d(Complex[][] sigs) {
+		int height = sigs.length;
+		if (height == 0) {
+			return null;
+		}
+		int width = sigs[0].length;
+		int N = roundPower(height);
+		int M = roundPower(width);
+		Complex[][] res;
+		try {
+			res = new Complex[N][M];
+		} catch (Exception e) {
+			return null;
+		}
+		
+		for (int i = 0; i < height; i++) {
+			res[i] = fft1d(sigs[i]);
+		}
+		
+		for (int j = 0; j < width; j++) {
+			Complex[] col = new Complex[height];
+			for (int i = 0; i < height; i++) {
+				col[i] = sigs[i][j];
+			}
+			Complex[] newCol = fft1d(col);
+			for (int i = 0; i < N; i++) {
+				res[i][j] = newCol[i];
+			}
+		}
+		
+		return null;
+	}
+	
+	public Complex[][] fourierTransformation(String label) {
+		if (height == 0 || width == 0) {
+			return null;
+		}
+		Complex[][] sigs = new Complex[height][width];
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				sigs[i][j] = new Complex(greyMatrix[i][j]);
+			}
+		}
+		Complex[][] fftSigs = fft2d(sigs);
+		
+		
+		
+		return fftSigs;
 	}
 }
 

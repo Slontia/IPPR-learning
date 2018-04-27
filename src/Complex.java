@@ -8,6 +8,11 @@ public class Complex {
 		this.imag = imag;
 	}
 	
+	public Complex(int n) {
+		this.real = n;
+		this.imag = 0;
+	}
+	
 	public double getReal() {
 		return this.real;
 	}

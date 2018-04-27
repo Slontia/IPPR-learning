@@ -11,7 +11,9 @@ import javax.imageio.stream.ImageOutputStream;
 
 class ImageProcessor {
 	final public static int GREY_SCALE_RANGE = 256;
-	int[][] greyMatrix;
+	protected int[][] greyMatrix;
+	protected int height;
+	protected int width;
 	
 	public ImageProcessor(String filename) {
         BufferedImage image = null;
@@ -20,7 +22,13 @@ class ImageProcessor {
         }catch(Exception e){
             e.printStackTrace();
         }
-        greyMatrix = getGreyMatrix(image);
+        this.greyMatrix = getGreyMatrix(image);
+        this.height = this.greyMatrix.length;
+        if (this.height == 0) {
+        	this.width = 0;
+        } else {
+        	this.width = this.greyMatrix[0].length;
+        }
 	}
 	
 	public void grayscale(String outputLabel) {
