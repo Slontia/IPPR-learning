@@ -1,7 +1,8 @@
+import java.awt.image.BufferedImage;
 
-class HistogramCorrector extends ImageProcessor {
-	public HistogramCorrector(String filename) {
-		super(filename);
+class HistogramCorrector extends GreyTransformation {
+	public HistogramCorrector(BufferedImage image) {
+		super(image);
 	}
 
 	/** API **/
@@ -10,8 +11,7 @@ class HistogramCorrector extends ImageProcessor {
         int[] greyTransMap = getGreyTransMap(greyCounts, partNum);
         int[][] newGreyMatrix = transGrey(greyMatrix, greyTransMap);
         greyCounts = getGreyCounts(newGreyMatrix);
-        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(newGreyMatrix));
-        outputImage("hist_" + outputLabel + ".png", "png", getHist(greyCounts));          
+        outputResult(outputLabel, newGreyMatrix);        
 	}
 	
 	// returns transforming map for grey scale in histogram correction
@@ -50,5 +50,10 @@ class HistogramCorrector extends ImageProcessor {
 			baseGreyScale = cuts[i] + 1;
 		}
 		return greyTransMap;
+	}
+	
+	private void outputResult(String outputLabel, int[][] greyMatrix) {
+        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+        outputImage("hist_" + outputLabel + ".png", "png", getHist(getGreyCounts(greyMatrix)));
 	}
 }

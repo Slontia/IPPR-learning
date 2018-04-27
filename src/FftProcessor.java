@@ -1,7 +1,8 @@
+import java.awt.image.BufferedImage;
 
 class FftProcessor extends ImageProcessor {
-	public FftProcessor(String filename) {
-		super(filename);
+	public FftProcessor(BufferedImage image) {
+		super(image);
 	}
 	
 	private int roundPower(int x) {
@@ -124,17 +125,46 @@ class FftProcessor extends ImageProcessor {
 			}
 		}
 		FourierComplex[][] res = fft2d(sigs);
-		if (res == null) {
+		outputResult(outputlabel, res);
+		return res;
+	}
+	
+	public int[][] normalizeMatrix(int[][] matrix, int edgeValue) {
+		int height = matrix.length;
+		if (height == 0 || edgeValue <= 0) {
 			return null;
 		}
-		int N = res.length;
-		int M = res[0].length;
+		int width = matrix[0].length;
+		int maxValue = 1;
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				if (matrix[i][j] > maxValue) {
+					maxValue = matrix[i][j];
+				}
+			}
+		}
+		double ratio = (double) edgeValue / (double) maxValue;
+		int[][] res = new int[height][width];
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				res[i][j] = (int) (matrix[i][j] * ratio);
+			}
+		}
+		return res;
+	}
+	
+	private void outputResult(String outputLabel, FourierComplex[][] frequencyMatrix) {
+		if (frequencyMatrix == null) {
+			return;
+		}
+		int N = frequencyMatrix.length;
+		int M = frequencyMatrix[0].length;
 		int[][] powerMatrix = new int[N][M];
 		int[][] rangeMatrix = new int[N][M];
 		int[][] phaseMatrix = new int[N][M];
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
-				FourierComplex fComplex = res[i][j];
+				FourierComplex fComplex = frequencyMatrix[i][j];
 				powerMatrix[i][j] = (int) fComplex.getPower();
 				rangeMatrix[i][j] = (int) fComplex.getRange();
 				phaseMatrix[i][j] = (int) fComplex.getPhase();
@@ -146,6 +176,5 @@ class FftProcessor extends ImageProcessor {
 		outputImage("power.png", "png", getGreyImage(powerMatrix));
 		outputImage("range.png", "png", getGreyImage(rangeMatrix));
 		outputImage("phase.png", "png", getGreyImage(phaseMatrix));
-		return res;
 	}
 }

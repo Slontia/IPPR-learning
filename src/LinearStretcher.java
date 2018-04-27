@@ -1,7 +1,8 @@
+import java.awt.image.BufferedImage;
 
-class LinearStretcher extends ImageProcessor {
-	public LinearStretcher(String filename) {
-		super(filename);
+class LinearStretcher extends GreyTransformation {	
+	public LinearStretcher(BufferedImage image) {
+		super(image);
 	}
 
 	/** API **/
@@ -15,17 +16,17 @@ class LinearStretcher extends ImageProcessor {
 	/** API **/
 	public void localStretch(String outputLabel, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
         int[] greyTransMap = getGreyTransMap(oriLowerScale, oriUpperScale, lowerScale, upperScale);
-        outputResultHist(outputLabel, transGrey(greyMatrix, greyTransMap));
+        outputResult(outputLabel, transGrey(greyMatrix, greyTransMap));
 	}
 	
 	/** API **/
 	public void piecewiseStretch(String outputLabel, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
 		int[] greyCounts = getGreyCounts(greyMatrix);
         int[] greyTransMap = getPiecewiseGreyTransMap(oriLowerScale, oriUpperScale, lowerScale, upperScale, greyCounts);
-        outputResultHist(outputLabel, transGrey(greyMatrix, greyTransMap));
+        outputResult(outputLabel, transGrey(greyMatrix, greyTransMap));
 	}
 	
-	private static int[] getGreyTransMap(int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
+	private int[] getGreyTransMap(int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
 		int[] transMap = new int[GREY_SCALE_RANGE];
 		fillGreyTransMap(transMap, oriLowerScale, oriUpperScale, lowerScale, upperScale);
 		fillGreyTransMap(transMap, 0, oriLowerScale, lowerScale, lowerScale + 1);
@@ -33,7 +34,7 @@ class LinearStretcher extends ImageProcessor {
     	return transMap;
 	}
 	
-	private static int[] getPiecewiseGreyTransMap(int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale, int[] greyCounts) {
+	private int[] getPiecewiseGreyTransMap(int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale, int[] greyCounts) {
 		int[] transMap = new int[GREY_SCALE_RANGE];
 		int[] edgeScale = getEdgeGreyScale(greyCounts);
 		int minScale = edgeScale[0], maxScale = edgeScale[1];
@@ -44,7 +45,7 @@ class LinearStretcher extends ImageProcessor {
 	}
 	
 	// @REQUIRES: valid upper / lower
-	private static void fillGreyTransMap(int[] transMap, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
+	private void fillGreyTransMap(int[] transMap, int oriLowerScale, int oriUpperScale, int lowerScale, int upperScale) {
 		if (upperScale <= lowerScale) return;
 		double rate = (double)(upperScale - lowerScale) / (double)(oriUpperScale - oriLowerScale);
 		for (int i = oriLowerScale; i < oriUpperScale; i++) {
@@ -53,5 +54,10 @@ class LinearStretcher extends ImageProcessor {
 				System.out.println("The World!!");
 			}
 		}
+	}
+	
+	private void outputResult(String outputLabel, int[][] greyMatrix) {
+        outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
+        outputImage("hist_" + outputLabel + ".png", "png", getHist(getGreyCounts(greyMatrix)));
 	}
 }
