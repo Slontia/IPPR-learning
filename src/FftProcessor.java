@@ -1,7 +1,7 @@
 import java.awt.image.BufferedImage;
 
-class FftProcessor extends ImageProcessor {
-	public FftProcessor(BufferedImage image) {
+class FFTProcessor extends SignalTransformation {
+	public FFTProcessor(BufferedImage image) {
 		super(image);
 	}
 	
@@ -14,7 +14,9 @@ class FftProcessor extends ImageProcessor {
 		return res;
 	}
 	
-	private FourierComplex[] fft1d(FourierComplex[] sigs) {
+	// inverseFlag = 1 to FFT
+	// inverseFlag = -1 to IFFT
+	private FourierComplex[] fft1d(FourierComplex[] sigs, int inverseFlag) {
 		// round signals
 		int len = sigs.length;
 		int N = roundPower(len);
@@ -31,7 +33,7 @@ class FftProcessor extends ImageProcessor {
 		// cal WN
 		FourierComplex[] WN = new FourierComplex[N / 2];
 		for (int i = 0; i < N / 2; i++) {
-			WN[i] = new FourierComplex(Math.cos(2 * Math.PI * i / N), -Math.sin(2 * Math.PI * i / N));
+			WN[i] = new FourierComplex(Math.cos(2 * Math.PI * i / N), -inverseFlag * Math.sin(2 * Math.PI * i / N));
 		}
 		
 		// initial list
@@ -61,10 +63,17 @@ class FftProcessor extends ImageProcessor {
 				}
 			}
 		}
+		
+		if (inverseFlag == -1) {
+			for (int i = 0; i < N; i++) {
+				res[i] = res[i].divInt(N);
+			}
+		}
+		
 		return res;
 	}
 	
-	private FourierComplex[][] fft2d(FourierComplex[][] sigs) {
+	private FourierComplex[][] fft2d(FourierComplex[][] sigs, int inverseFlag) {
 		int height = sigs.length;
 		if (height == 0) {
 			return null;
@@ -80,7 +89,7 @@ class FftProcessor extends ImageProcessor {
 		}
 		
 		for (int i = 0; i < height; i++) {
-			res[i] = fft1d(sigs[i]);
+			res[i] = fft1d(sigs[i], inverseFlag);
 		}
 		
 		for (int j = 0; j < M; j++) {
@@ -88,7 +97,7 @@ class FftProcessor extends ImageProcessor {
 			for (int i = 0; i < height; i++) {
 				col[i] = res[i][j];
 			}
-			FourierComplex[] newCol = fft1d(col);
+			FourierComplex[] newCol = fft1d(col, inverseFlag);
 			for (int i = 0; i < N; i++) {
 				res[i][j] = newCol[i];
 			}
@@ -97,6 +106,7 @@ class FftProcessor extends ImageProcessor {
 		return res;
 	}
 	
+	// move range image to center
 	private int[][] translation(int[][] matrix, int N, int M) {
 		int i, j;
 		int[][] res = new int[N][M];
@@ -124,33 +134,23 @@ class FftProcessor extends ImageProcessor {
 				sigs[i][j] = new FourierComplex(greyMatrix[i][j]);
 			}
 		}
-		FourierComplex[][] res = fft2d(sigs);
+		FourierComplex[][] res = fft2d(sigs, 1);
 		outputResult(outputlabel, res);
 		return res;
 	}
 	
-	public int[][] normalizeMatrix(int[][] matrix, int edgeValue) {
-		int height = matrix.length;
-		if (height == 0 || edgeValue <= 0) {
-			return null;
-		}
-		int width = matrix[0].length;
-		int maxValue = 1;
+	public BufferedImage fourierInverse(String outputLabel, FourierComplex[][] sigs) {
+		FourierComplex[][] inverse = fft2d(sigs, -1);
+		int[][] greyMatrix = new int[height][width];
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				if (matrix[i][j] > maxValue) {
-					maxValue = matrix[i][j];
-				}
+				greyMatrix[i][j] = (int) inverse[i][j].getReal();
 			}
 		}
-		double ratio = (double) edgeValue / (double) maxValue;
-		int[][] res = new int[height][width];
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				res[i][j] = (int) (matrix[i][j] * ratio);
-			}
-		}
-		return res;
+		BufferedImage image = getGreyImage(greyMatrix);
+		outputImage("FFT_inverse_" + outputLabel + ".png", "png", image);
+		outputResult(outputLabel, sigs);
+		return image;
 	}
 	
 	private void outputResult(String outputLabel, FourierComplex[][] frequencyMatrix) {
@@ -173,8 +173,8 @@ class FftProcessor extends ImageProcessor {
 		rangeMatrix = translation(normalizeMatrix(rangeMatrix, GREY_SCALE_RANGE - 1), N, M);
 		powerMatrix = translation(normalizeMatrix(powerMatrix, GREY_SCALE_RANGE - 1), N, M);
 		phaseMatrix = translation(normalizeMatrix(phaseMatrix, GREY_SCALE_RANGE - 1), N, M);
-		outputImage("power_" + outputLabel + ".png", "png", getGreyImage(powerMatrix));
-		outputImage("range_" + outputLabel + ".png", "png", getGreyImage(rangeMatrix));
-		outputImage("phase_" + outputLabel + ".png", "png", getGreyImage(phaseMatrix));
+		outputImage("FFT_power_" + outputLabel + ".png", "png", getGreyImage(powerMatrix));
+		outputImage("FFT_range_" + outputLabel + ".png", "png", getGreyImage(rangeMatrix));
+		outputImage("FFT_phase_" + outputLabel + ".png", "png", getGreyImage(phaseMatrix));
 	}
 }

@@ -39,6 +39,12 @@ public class FourierComplex {
 				this.real * x.imag + this.imag * x.real);
 	}
 	
+	public FourierComplex divInt(int x) {
+		return new FourierComplex(
+				this.real / x, 
+				this.imag / x);
+	}
+	
 	public double getPower() {
 		return (this.real * this.real + this.imag * this.imag);
 	}

@@ -17,7 +17,11 @@ public class Main {
 	public static void main(String[] args) {
 		String filename = "D:/test.png";
 		BufferedImage image = readImage(filename);
-		FftProcessor fftProcessor = new FftProcessor(image);
-		fftProcessor.fourierTransformation("test");
+//		DCTProcessor dctProcessor = new DCTProcessor(image);
+//		dctProcessor.CosineTransformation("test");
+		FFTProcessor fftProcessor = new FFTProcessor(image);
+		FourierComplex[][] fourierComplexs = fftProcessor.fourierTransformation("trans");
+		fftProcessor.fourierInverse("inverse", fourierComplexs);
+		
 	}
 }
