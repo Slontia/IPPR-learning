@@ -32,7 +32,7 @@ class ImageProcessor {
 	}
 	
 	public void grayscale(String outputLabel) {
-        outputResult(outputLabel, greyMatrix);
+        outputResultHist(outputLabel, greyMatrix);
 	}
 	
 	protected static int[] getEdgeGreyScale(int[] greyCounts) {
@@ -72,9 +72,33 @@ class ImageProcessor {
 		return greyCounts;
 	}
 	
-	protected static void outputResult(String outputLabel, int[][] greyMatrix) {
+	protected static void outputResultHist(String outputLabel, int[][] greyMatrix) {
         outputImage("grey_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
         outputImage("hist_" + outputLabel + ".png", "png", getHist(getGreyCounts(greyMatrix)));
+	}
+	
+	static public int[][] normalizeMatrix(int[][] matrix, int edgeValue) {
+		int height = matrix.length;
+		if (height == 0 || edgeValue <= 0) {
+			return null;
+		}
+		int width = matrix[0].length;
+		int maxValue = 1;
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				if (matrix[i][j] > maxValue) {
+					maxValue = matrix[i][j];
+				}
+			}
+		}
+		double ratio = (double) edgeValue / (double) maxValue;
+		int[][] res = new int[height][width];
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				res[i][j] = (int) (matrix[i][j] * ratio);
+			}
+		}
+		return res;
 	}
 	
 	// @EFFECTS: output the image
