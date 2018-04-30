@@ -1,6 +1,9 @@
 import java.awt.image.BufferedImage;
 
 class FFTProcessor extends SignalTransformation {
+	final long RANGE_EDGE = 50000;
+	final long POWER_EDGE = RANGE_EDGE * RANGE_EDGE;
+	
 	public FFTProcessor(BufferedImage image) {
 		super(image);
 	}
@@ -139,15 +142,15 @@ class FFTProcessor extends SignalTransformation {
 		return res;
 	}
 	
+	/** API **/
 	public BufferedImage fourierInverse(String outputLabel, FourierComplex[][] sigs) {
 		FourierComplex[][] inverse = fft2d(sigs, -1);
-		int[][] greyMatrix = new int[height][width];
+		long[][] greyMatrix = new long[height][width];
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				greyMatrix[i][j] = (int) inverse[i][j].getReal();
+				greyMatrix[i][j] = (long) inverse[i][j].getReal();
 			}
 		}
-		
 		BufferedImage image = getGreyImage(normalizeMatrix(greyMatrix, GREY_SCALE_RANGE - 1));
 		outputImage("FFT_Inverse_" + outputLabel + ".png", "png", image);
 		outputResult(outputLabel, sigs);
@@ -160,22 +163,22 @@ class FFTProcessor extends SignalTransformation {
 		}
 		int N = frequencyMatrix.length;
 		int M = frequencyMatrix[0].length;
-		int[][] powerMatrix = new int[N][M];
-		int[][] rangeMatrix = new int[N][M];
-		int[][] phaseMatrix = new int[N][M];
+		long[][] powerMatrix = new long[N][M];
+		long[][] rangeMatrix = new long[N][M];
+		long[][] phaseMatrix = new long[N][M];
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				FourierComplex fComplex = frequencyMatrix[i][j];
-				powerMatrix[i][j] = (int) fComplex.getPower();
-				rangeMatrix[i][j] = (int) fComplex.getRange();
-				phaseMatrix[i][j] = (int) fComplex.getPhase();
+				powerMatrix[i][j] = (long) fComplex.getPower();
+				rangeMatrix[i][j] = (long) fComplex.getRange();
+				phaseMatrix[i][j] = (long) fComplex.getPhase();
 			}
 		}
-		rangeMatrix = translation(normalizeMatrix(rangeMatrix, GREY_SCALE_RANGE - 1), N, M);
-		powerMatrix = translation(normalizeMatrix(powerMatrix, GREY_SCALE_RANGE - 1), N, M);
-		phaseMatrix = translation(normalizeMatrix(phaseMatrix, GREY_SCALE_RANGE - 1), N, M);
-		outputImage("FFT_Power_" + outputLabel + ".png", "png", getGreyImage(powerMatrix));
-		outputImage("FFT_Range_" + outputLabel + ".png", "png", getGreyImage(rangeMatrix));
-		outputImage("FFT_Phase_" + outputLabel + ".png", "png", getGreyImage(phaseMatrix));
+		int[][] powerGreyMatrix = translation(normalizeMatrix(powerMatrix, POWER_EDGE), N, M);
+		int[][] rangeGreyMatrix = translation(normalizeMatrix(rangeMatrix, RANGE_EDGE), N, M);
+		int[][] phaseGreyMatrix = translation(normalizeMatrix(phaseMatrix), N, M);
+		outputImage("FFT_Power_" + outputLabel + ".png", "png", getGreyImage(powerGreyMatrix));
+		outputImage("FFT_Range_" + outputLabel + ".png", "png", getGreyImage(rangeGreyMatrix));
+		outputImage("FFT_Phase_" + outputLabel + ".png", "png", getGreyImage(phaseGreyMatrix));
 	}
 }

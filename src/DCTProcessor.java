@@ -1,6 +1,8 @@
 import java.awt.image.BufferedImage;
 
 public class DCTProcessor extends SignalTransformation{
+	final long EDGE = 10000;
+	
 	public DCTProcessor(BufferedImage image) {
 		super(image);
 	}
@@ -50,15 +52,15 @@ public class DCTProcessor extends SignalTransformation{
 		return res;
 	}
 	
-	private int[][] outputResult(String outputLabel, double[][] frequencyMatrix) {
-		int[][] res = new int[height][width];
+	private long[][] outputResult(String outputLabel, double[][] frequencyMatrix) {
+		long[][] res = new long[height][width];
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				res[i][j] = (int) frequencyMatrix[i][j];
 			}
 		}
-		res = normalizeMatrix(res, GREY_SCALE_RANGE - 1);
-		outputImage("DCT_" + outputLabel + ".png", "png", getGreyImage(res));
+		int[][] greyMatrix = normalizeMatrix(res, EDGE);
+		outputImage("DCT_" + outputLabel + ".png", "png", getGreyImage(greyMatrix));
 		return res;
 	}
 }

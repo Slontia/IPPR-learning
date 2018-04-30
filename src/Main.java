@@ -20,6 +20,7 @@ public class Main {
 		
 		// FFT
 		FFTProcessor fftProcessor = new FFTProcessor(image);	// create processor
+		fftProcessor.grayscale("grey");
 		FourierComplex[][] fourierComplexs = fftProcessor.fourierTransformation("trans");	// FFT
 		
 		FrequencyFilter filter = new FrequencyFilter();			// create filter

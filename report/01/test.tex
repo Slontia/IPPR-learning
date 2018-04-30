@@ -235,9 +235,9 @@
 		\[
 		g(x,y)=\left\{
 		\begin{array}{lcl}
-		c & & ,{0 <= f(x,y) < a} \\
+		c & & ,{0 \leq f(x,y) < a} \\
 		\frac{d-c}{b-a} * (f(x,y)-a) + c & & ,{a \leq f(x,y) \leq b} \\
-		d & & ,{b < f(x,y) <= 255} \\
+		d & & ,{b < f(x,y) \leq 255} \\
 		\end{array}\right.
 		\]
 		\indent若要使得变换后整体灰度范围不变，则可以采用分段线性变换。假设原图灰度范围为$[Y_{min},Y_{max}]$则变换函数$T_{pl}$可以表示为
