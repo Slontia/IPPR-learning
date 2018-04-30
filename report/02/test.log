@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.26)  30 APR 2018 22:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.26)  30 APR 2018 22:42
 entering extended mode
 **D:/Projects/Java/ImageProcessing01/report/02/test.tex
 (D:/Projects/Java/ImageProcessing01/report/02/test.tex
@@ -1748,6 +1748,13 @@ Package pdftex.def Info: DCT_trans.png  used on input line 214. on input line 2
 14.
 Package pdftex.def Info: Requested size: 150.14671pt x 114.11409pt on input lin
 e 214.
+<DCT_trans_large.png, id=204, 376.40625pt x 286.06876pt>
+File: DCT_trans_large.png Graphic file (type png)
+<use DCT_trans_large.png>
+Package pdftex.def Info: DCT_trans_large.png  used on input line 216. on input 
+line 216.
+Package pdftex.def Info: Requested size: 150.14671pt x 114.11555pt on input lin
+e 216.
 [4] [5 <./FFT_Inverse_inverse_50_1.png (PNG copy)> <./FFT_Inverse_inverse_20_1.
 png (PNG copy)> <./FFT_Inverse_inverse_10_1.png (PNG copy)> <./FFT_Range_invers
 e_50_1.png (PNG copy)> <./FFT_Range_inverse_20_1.png (PNG copy)> <./FFT_Range_i
@@ -1755,18 +1762,18 @@ nverse_10_1.png (PNG copy)>] [6 <./FFT_Inverse_inverse_20_0.png (PNG copy)> <./
 FFT_Inverse_inverse_10_0.png (PNG copy)> <./FFT_Inverse_inverse_5_0.png (PNG co
 py)> <./FFT_Range_inverse_20_0.png (PNG copy)> <./FFT_Range_inverse_10_0.png (P
 NG copy)> <./FFT_Range_inverse_5_0.png (PNG copy)> <./DCT_trans.png (PNG copy)>
-] (test.aux)
+ <./DCT_trans_large.png>] (test.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 26470 strings out of 493312
- 521573 string characters out of 3138887
- 517186 words of memory out of 3000000
- 29309 multiletter control sequences out of 15000+200000
- 576737 words of font info for 193 fonts, out of 3000000 for 9000
+ 26485 strings out of 493312
+ 521862 string characters out of 3138887
+ 518186 words of memory out of 3000000
+ 29319 multiletter control sequences out of 15000+200000
+ 577817 words of font info for 197 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,13n,56p,10476b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/windows/Fonts/simsun.ttc><C:/windows/Fonts/simhei.ttf><C:/windows/Fonts/s
@@ -1820,9 +1827,9 @@ c/amsfonts/cm/cmr7.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsl10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><D
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on test.pdf (6 pages, 1688874 bytes).
+Output written on test.pdf (6 pages, 1694741 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
+ 589 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 354 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 359 words of extra memory for PDF output out of 10000 (max. 10000000)
 
