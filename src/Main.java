@@ -7,7 +7,7 @@ public class Main {
 	public static BufferedImage readImage(String filename) {
         BufferedImage image = null;
         try{
-        	image = ImageIO.read(new File(filename)); // read image
+        	image = ImageIO.read(new File(filename));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -15,38 +15,36 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		String filename = "D:/test3.png";
-		BufferedImage image = readImage(filename);
-//		DCTProcessor dctProcessor = new DCTProcessor(image);
-//		dctProcessor.CosineTransformation("test");
-		FFTProcessor fftProcessor = new FFTProcessor(image);
-		FourierComplex[][] fourierComplexs = fftProcessor.fourierTransformation("trans");
-		FrequencyFilter filter = new FrequencyFilter();
+		String filename = "D:/test0.png";			// open file
+		BufferedImage image = readImage(filename);	// read file
 		
+		// FFT
+		FFTProcessor fftProcessor = new FFTProcessor(image);	// create processor
+		FourierComplex[][] fourierComplexs = fftProcessor.fourierTransformation("trans");	// FFT
+		
+		FrequencyFilter filter = new FrequencyFilter();			// create filter
 		FourierComplex[][] filteredComplexs;
 		
-		filteredComplexs = filter.filter(fourierComplexs, 10, 1);
-		fftProcessor.fourierInverse("inverse_10_1", filteredComplexs);
-		System.out.println(1);
+		filteredComplexs = filter.filter(fourierComplexs, 10, 1);		// filter frequency
+		fftProcessor.fourierInverse("inverse_10_1", filteredComplexs);	// IFFT
 		
 		filteredComplexs = filter.filter(fourierComplexs, 20, 1);
 		fftProcessor.fourierInverse("inverse_20_1", filteredComplexs);
-		System.out.println(2);
 		
 		filteredComplexs = filter.filter(fourierComplexs, 50, 1);
 		fftProcessor.fourierInverse("inverse_50_1", filteredComplexs);
-		System.out.println(3);
+		
+		filteredComplexs = filter.filter(fourierComplexs, 5, 0);
+		fftProcessor.fourierInverse("inverse_5_0", filteredComplexs);
+		
+		filteredComplexs = filter.filter(fourierComplexs, 10, 0);
+		fftProcessor.fourierInverse("inverse_10_0", filteredComplexs);
 		
 		filteredComplexs = filter.filter(fourierComplexs, 20, 0);
 		fftProcessor.fourierInverse("inverse_20_0", filteredComplexs);
-		System.out.println(4);
 		
-		filteredComplexs = filter.filter(fourierComplexs, 50, 0);
-		fftProcessor.fourierInverse("inverse_50_0", filteredComplexs);
-		System.out.println(5);
-		
-		filteredComplexs = filter.filter(fourierComplexs, 100, 0);
-		fftProcessor.fourierInverse("inverse_100_0", filteredComplexs);
-		System.out.println(6);
+		// DCT
+		DCTProcessor dctProcessor = new DCTProcessor(image);	// create processor
+		dctProcessor.CosineTransformation("trans");				// DCT
 	}
 }

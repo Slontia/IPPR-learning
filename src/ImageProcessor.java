@@ -35,7 +35,7 @@ class ImageProcessor {
 				rgb[0] = (pixel & 0xff0000) >> 16;  
 				rgb[1] = (pixel & 0xff00) >> 8;  
 				rgb[2] = (pixel & 0xff);  
-	            image.setRGB(i, j, (rgb[0] << 16) | (rgb[1] << 8) | (rgb[2])); 
+//	            image.setRGB(i, j, (rgb[0] << 16) | (rgb[1] << 8) | (rgb[2])); 
 	            greyMatrix[i][j] = (int)(0.3 * rgb[0] + 0.59 * rgb[1] + 0.11 * rgb[2]); // translate to grey
             }
         }

@@ -145,23 +145,16 @@ class FFTProcessor extends SignalTransformation {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				greyMatrix[i][j] = (int) inverse[i][j].getReal();
-//				if (greyMatrix[i][j] > 255 || greyMatrix[i][j] < 0) {
-//					System.out.println(greyMatrix[i][j]);
-//				}
-//				if (inverse[i][j].getImag() > 1) {
-//					System.out.println(inverse[i][j].getImag());
-//				}
 			}
 		}
 		
 		BufferedImage image = getGreyImage(normalizeMatrix(greyMatrix, GREY_SCALE_RANGE - 1));
-		outputImage("FFT_inverse_" + outputLabel + ".png", "png", image);
+		outputImage("FFT_Inverse_" + outputLabel + ".png", "png", image);
 		outputResult(outputLabel, sigs);
 		return image;
 	}
 	
 	private void outputResult(String outputLabel, FourierComplex[][] frequencyMatrix) {
-		
 		if (frequencyMatrix == null) {
 			return;
 		}
@@ -181,8 +174,8 @@ class FFTProcessor extends SignalTransformation {
 		rangeMatrix = translation(normalizeMatrix(rangeMatrix, GREY_SCALE_RANGE - 1), N, M);
 		powerMatrix = translation(normalizeMatrix(powerMatrix, GREY_SCALE_RANGE - 1), N, M);
 		phaseMatrix = translation(normalizeMatrix(phaseMatrix, GREY_SCALE_RANGE - 1), N, M);
-		outputImage("FFT_power_" + outputLabel + ".png", "png", getGreyImage(powerMatrix));
-		outputImage("FFT_range_" + outputLabel + ".png", "png", getGreyImage(rangeMatrix));
-		outputImage("FFT_phase_" + outputLabel + ".png", "png", getGreyImage(phaseMatrix));
+		outputImage("FFT_Power_" + outputLabel + ".png", "png", getGreyImage(powerMatrix));
+		outputImage("FFT_Range_" + outputLabel + ".png", "png", getGreyImage(rangeMatrix));
+		outputImage("FFT_Phase_" + outputLabel + ".png", "png", getGreyImage(phaseMatrix));
 	}
 }

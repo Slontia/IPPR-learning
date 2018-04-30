@@ -1,4 +1,3 @@
-import java.util.Locale.FilteringMode;
 
 public class FrequencyFilter {
 	public FrequencyFilter() {}
