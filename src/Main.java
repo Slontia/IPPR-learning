@@ -18,34 +18,9 @@ public class Main {
 		String filename = "D:/test0.png";			// open file
 		BufferedImage image = readImage(filename);	// read file
 		
-		// FFT
-		FFTProcessor fftProcessor = new FFTProcessor(image);	// create processor
-		fftProcessor.grayscale("grey");
-		FourierComplex[][] fourierComplexs = fftProcessor.fourierTransformation("trans");	// FFT
-		
-		FrequencyFilter filter = new FrequencyFilter();			// create filter
-		FourierComplex[][] filteredComplexs;
-		
-		filteredComplexs = filter.filter(fourierComplexs, 10, 1);		// filter frequency
-		fftProcessor.fourierInverse("inverse_10_1", filteredComplexs);	// IFFT
-		
-		filteredComplexs = filter.filter(fourierComplexs, 20, 1);
-		fftProcessor.fourierInverse("inverse_20_1", filteredComplexs);
-		
-		filteredComplexs = filter.filter(fourierComplexs, 50, 1);
-		fftProcessor.fourierInverse("inverse_50_1", filteredComplexs);
-		
-		filteredComplexs = filter.filter(fourierComplexs, 5, 0);
-		fftProcessor.fourierInverse("inverse_5_0", filteredComplexs);
-		
-		filteredComplexs = filter.filter(fourierComplexs, 10, 0);
-		fftProcessor.fourierInverse("inverse_10_0", filteredComplexs);
-		
-		filteredComplexs = filter.filter(fourierComplexs, 20, 0);
-		fftProcessor.fourierInverse("inverse_20_0", filteredComplexs);
-		
 		// DCT
 		DCTProcessor dctProcessor = new DCTProcessor(image);	// create processor
-		dctProcessor.CosineTransformation("trans");				// DCT
+		double[][] sigs = dctProcessor.cosineTransformation("trans");				// DCT
+		dctProcessor.cosineInverse("inverse", sigs);
 	}
 }

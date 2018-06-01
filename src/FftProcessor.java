@@ -19,7 +19,7 @@ class FFTProcessor extends SignalTransformation {
 	
 	// inverseFlag = 1 to FFT
 	// inverseFlag = -1 to IFFT
-	private FourierComplex[] fft1d(FourierComplex[] sigs, int inverseFlag) {
+	private FourierComplex[] fft1d(FourierComplex[] sigs, boolean inverseFlag) {
 		// round signals
 		int len = sigs.length;
 		int N = roundPower(len);
@@ -36,7 +36,7 @@ class FFTProcessor extends SignalTransformation {
 		// cal WN
 		FourierComplex[] WN = new FourierComplex[N / 2];
 		for (int i = 0; i < N / 2; i++) {
-			WN[i] = new FourierComplex(Math.cos(2 * Math.PI * i / N), -inverseFlag * Math.sin(2 * Math.PI * i / N));
+			WN[i] = new FourierComplex(Math.cos(2 * Math.PI * i / N), (inverseFlag ? 1 : -1) * Math.sin(2 * Math.PI * i / N));
 		}
 		
 		// initial list
@@ -67,7 +67,7 @@ class FFTProcessor extends SignalTransformation {
 			}
 		}
 		
-		if (inverseFlag == -1) {
+		if (inverseFlag) {
 			for (int i = 0; i < N; i++) {
 				res[i] = res[i].div(N);
 			}
@@ -76,7 +76,7 @@ class FFTProcessor extends SignalTransformation {
 		return res;
 	}
 	
-	private FourierComplex[][] fft2d(FourierComplex[][] sigs, int inverseFlag) {
+	private FourierComplex[][] fft2d(FourierComplex[][] sigs, boolean inverseFlag) {
 		int height = sigs.length;
 		if (height == 0) {
 			return null;
@@ -137,14 +137,14 @@ class FFTProcessor extends SignalTransformation {
 				sigs[i][j] = new FourierComplex(greyMatrix[i][j]);
 			}
 		}
-		FourierComplex[][] res = fft2d(sigs, 1);
+		FourierComplex[][] res = fft2d(sigs, false);
 		outputResult(outputlabel, res);
 		return res;
 	}
 	
 	/** API **/
 	public BufferedImage fourierInverse(String outputLabel, FourierComplex[][] sigs) {
-		FourierComplex[][] inverse = fft2d(sigs, -1);
+		FourierComplex[][] inverse = fft2d(sigs, true);
 		long[][] greyMatrix = new long[width][height];
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
