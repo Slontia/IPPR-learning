@@ -9,7 +9,7 @@ public class DCTProcessor extends SignalTransformation{
 	}
 	
 	private double calC(int n) {
-		return n == 0 ? (1 / Math.pow(2, 0.5)) : 1.0;
+		return n == 0 ? (1.0 / Math.pow(2, 0.5)) : 1.0;
 	}
 	
 	private double[] dct1d(double[] sigs) {
@@ -19,7 +19,7 @@ public class DCTProcessor extends SignalTransformation{
 			for (int x = 0; x < sigs.length; x++) {
 				sum += sigs[x] * Math.cos((2 * x + 1) * u * Math.PI / 2 / sigs.length);
 			}
-			res[u] = sum / Math.pow(2 * sigs.length, 0.5) * calC(u);
+			res[u] = sum * Math.pow(2.0 / sigs.length, 0.5) * calC(u);
 		}
 		return res;
 	}
@@ -31,8 +31,8 @@ public class DCTProcessor extends SignalTransformation{
 			for (int u = 0; u < sigs.length; u++) {
 				sum += sigs[u] * calC(u) * Math.cos((2 * x + 1) * u * Math.PI / 2 / sigs.length);
 			}
-			res[x] = sum;
-			//res[x] = sum / Math.pow(2 * sigs.length, 0.5);
+			//res[x] = sum;
+			res[x] = sum * Math.pow(2.0 / sigs.length, 0.5);
 		}
 		return res;
 	}
@@ -69,7 +69,9 @@ public class DCTProcessor extends SignalTransformation{
 				sigs[i][j] = (double) greyMatrix[i][j]; // change type to double
 			}
 		}
+		
 		double[][] res = dct2d(sigs, false);
+		
 		outputResult(outputLabel, res);
 		return res;
 	}
@@ -81,8 +83,7 @@ public class DCTProcessor extends SignalTransformation{
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
 				greyMatrix[i][j] = (long)res[i][j];
-				if (greyMatrix[i][j] > 5)
-				System.out.println(greyMatrix[i][j] + " ");
+//				System.out.println(greyMatrix[i][j] + " ");
 			}
 		}
 		BufferedImage image = getGreyImage(normalizeMatrix(greyMatrix, GREY_SCALE_RANGE - 1));

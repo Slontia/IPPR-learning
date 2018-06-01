@@ -21,6 +21,6 @@ public class Main {
 		// DCT
 		DCTProcessor dctProcessor = new DCTProcessor(image);	// create processor
 		double[][] sigs = dctProcessor.cosineTransformation("trans");				// DCT
-		dctProcessor.cosineInverse("inverse", sigs);
+		dctProcessor.cosineInverse("inverse_", sigs);
 	}
 }
