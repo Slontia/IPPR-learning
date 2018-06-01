@@ -9,37 +9,30 @@ import javax.imageio.stream.ImageOutputStream;
 
 class ImageProcessor {
 	final public static int GREY_SCALE_RANGE = 256;
-	protected int[][] greyMatrix;
-	protected int height;
-	protected int width;
+	final protected int[][] greyMatrix;
+	final protected int[][] saturMatrix;
+	final protected int[][] chromaMatrix;
+	final protected int height;
+	final protected int width;
 	
 	public ImageProcessor(BufferedImage image) {
-        this.greyMatrix = getGreyMatrix(image);
-        this.height = this.greyMatrix.length;
-        if (this.height == 0) {
-        	this.width = 0;
-        } else {
-        	this.width = this.greyMatrix[0].length;
-        }
-	}
-	
-	// @EFFECTS: returns the matrix of grey scale with image (colorized or grey)
-	private int[][] getGreyMatrix(BufferedImage image) {
-        int width = image.getWidth();
-        int height = image.getHeight();
-        int[] rgb = new int[3];
-        int[][] greyMatrix = new int[width][height]; 
+        width = image.getWidth();
+        height = image.getHeight();
+        int r, g, b;
+        greyMatrix = new int[width][height];
+        saturMatrix = new int[width][height];
+        chromaMatrix = new int[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
             	int pixel = image.getRGB(i, j);            
-				rgb[0] = (pixel & 0xff0000) >> 16;  
-				rgb[1] = (pixel & 0xff00) >> 8;  
-				rgb[2] = (pixel & 0xff);  
-//	            image.setRGB(i, j, (rgb[0] << 16) | (rgb[1] << 8) | (rgb[2])); 
-	            greyMatrix[i][j] = (int)(0.3 * rgb[0] + 0.59 * rgb[1] + 0.11 * rgb[2]); // translate to grey
+				r = (pixel & 0xff0000) >> 16;  
+				g = (pixel & 0xff00) >> 8;  
+				b = (pixel & 0xff);  
+				greyMatrix[i][j] = (int)(0.299 * r + 0.587 * g + 0.114 * b); // translate to grey
+				saturMatrix[i][j] = (int)(-0.1687 * r - 0.3313 * g + 0.5 * b + 128);
+				chromaMatrix[i][j] = (int)(0.5 * r - 0.418 * g - 0.0813 * b + 128);
             }
         }
-		return greyMatrix;
 	}
 	
 	// @REQUIRES: greyMap must be a matrix

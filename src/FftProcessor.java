@@ -131,9 +131,9 @@ class FFTProcessor extends SignalTransformation {
 		if (height == 0 || width == 0) {
 			return null;
 		}
-		FourierComplex[][] sigs = new FourierComplex[height][width];
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
+		FourierComplex[][] sigs = new FourierComplex[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
 				sigs[i][j] = new FourierComplex(greyMatrix[i][j]);
 			}
 		}
@@ -145,9 +145,9 @@ class FFTProcessor extends SignalTransformation {
 	/** API **/
 	public BufferedImage fourierInverse(String outputLabel, FourierComplex[][] sigs) {
 		FourierComplex[][] inverse = fft2d(sigs, -1);
-		long[][] greyMatrix = new long[height][width];
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
+		long[][] greyMatrix = new long[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
 				greyMatrix[i][j] = (long) inverse[i][j].getReal();
 			}
 		}

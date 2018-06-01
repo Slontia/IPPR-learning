@@ -1,4 +1,5 @@
 import java.awt.image.BufferedImage;
+import java.text.DecimalFormat;
 
 public class DCTProcessor extends SignalTransformation{
 	final long EDGE = 10000;
@@ -21,19 +22,23 @@ public class DCTProcessor extends SignalTransformation{
 	}
 	
 	private double[][] dct2d(double[][] sigs) {
-		double[][] res = new double[height][width];
-		for (int i = 0; i < height; i++) {
-			System.out.println((double) i / (height + width) * 100 + "%");
+		double[][] res = new double[width][height];
+		double schedule = 0;
+		DecimalFormat decimalFormat = new DecimalFormat("0.00");
+		for (int i = 0; i < width; i++) {
+			schedule = (double) i / (height + width) * 100;
+			System.out.println(decimalFormat.format(schedule) + "%");
 			res[i] = dct1d(sigs[i]);
 		}
-		for (int j = 0 ; j < width; j++) {
-			System.out.println((double) (j + height) / (height + width) * 100 + "%");
-			double[] col = new double[height];
-			for (int i = 0 ;i < height; i++) {
+		for (int j = 0 ; j < height; j++) {
+			schedule = (double) (j + width) / (height + width) * 100;
+			System.out.println(decimalFormat.format(schedule) + "%");
+			double[] col = new double[width];
+			for (int i = 0 ;i < width; i++) {
 				col[i] = res[i][j];
 			}
 			col = dct1d(col);
-			for (int i = 0; i < height; i++) {
+			for (int i = 0; i < width; i++) {
 				res[i][j] = col[i];
 			}
 		}
@@ -41,9 +46,10 @@ public class DCTProcessor extends SignalTransformation{
 	}
 	
 	public double[][] CosineTransformation(String outputLabel) {
-		double[][] sigs = new double[height][width];
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
+		double[][] sigs = new double[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				//System.out.println(height + " " + width + " " + i + " " + j);
 				sigs[i][j] = (double) greyMatrix[i][j];
 			}
 		}
@@ -53,9 +59,9 @@ public class DCTProcessor extends SignalTransformation{
 	}
 	
 	private long[][] outputResult(String outputLabel, double[][] frequencyMatrix) {
-		long[][] res = new long[height][width];
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
+		long[][] res = new long[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
 				res[i][j] = (int) frequencyMatrix[i][j];
 			}
 		}
