@@ -18,9 +18,18 @@ public class Main {
 		String filename = "D:/test0.png";			// open file
 		BufferedImage image = readImage(filename);	// read file
 		
+		FFTProcessor fftProcessor = new FFTProcessor(image);
+		FourierComplex[][] res = fftProcessor.fourierTransformation("");
+		FrequencyFilter filter = new FrequencyFilter();
+		res = filter.filter(res, 20, 0);
+		fftProcessor.fourierInverse("", res);
+		
+		EdgeExtractor edgeExtractor = new EdgeExtractor(image);
+		//edgeExtractor.sobelFilter("sobel");
+		edgeExtractor.laplaceFilter("laplace");
 		// DCT
-		DCTProcessor dctProcessor = new DCTProcessor(image);	// create processor
-		double[][] sigs = dctProcessor.cosineTransformation("trans");				// DCT
-		dctProcessor.cosineInverse("inverse_", sigs);
+//		DCTProcessor dctProcessor = new DCTProcessor(image);	// create processor
+//		double[][] sigs = dctProcessor.cosineTransformation("trans");				// DCT
+//		dctProcessor.cosineInverse("inverse_", sigs);
 	}
 }

@@ -1,8 +1,8 @@
 import java.awt.image.BufferedImage;
 
 class FFTProcessor extends SignalTransformation {
-	final long RANGE_EDGE = 50000;
-	final long POWER_EDGE = RANGE_EDGE * RANGE_EDGE;
+	final long RANGE_EDGE = 255;
+	final long POWER_EDGE = 255;
 	
 	public FFTProcessor(BufferedImage image) {
 		super(image);
@@ -151,7 +151,7 @@ class FFTProcessor extends SignalTransformation {
 				greyMatrix[i][j] = (long) inverse[i][j].getReal();
 			}
 		}
-		BufferedImage image = getGreyImage(normalizeMatrix(greyMatrix, GREY_SCALE_RANGE - 1));
+		BufferedImage image = getGreyImage(normalizeImage(greyMatrix, GREY_SCALE_RANGE - 1));
 		outputImage("FFT_Inverse_" + outputLabel + ".png", "png", image);
 		outputResult(outputLabel, sigs);
 		return image;
@@ -174,8 +174,8 @@ class FFTProcessor extends SignalTransformation {
 				phaseMatrix[i][j] = (long) fComplex.getPhase();
 			}
 		}
-		int[][] powerGreyMatrix = translation(normalizeMatrix(powerMatrix, POWER_EDGE), N, M);
-		int[][] rangeGreyMatrix = translation(normalizeMatrix(rangeMatrix, RANGE_EDGE), N, M);
+		int[][] powerGreyMatrix = translation(normalizeImage(powerMatrix, POWER_EDGE), N, M);
+		int[][] rangeGreyMatrix = translation(normalizeImage(rangeMatrix, RANGE_EDGE), N, M);
 		int[][] phaseGreyMatrix = translation(normalizeMatrix(phaseMatrix), N, M);
 		outputImage("FFT_Power_" + outputLabel + ".png", "png", getGreyImage(powerGreyMatrix));
 		outputImage("FFT_Range_" + outputLabel + ".png", "png", getGreyImage(rangeGreyMatrix));
