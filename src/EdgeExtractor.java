@@ -9,7 +9,7 @@ public class EdgeExtractor extends ImageProcessor {
 		};
 	final private int[][] sobelOperatorY = 
 		{
-				{1,	-2,	 1},
+				{-1,	-2,	 -1},
 				{0,	 0,	 0},
 				{1,	 2,	 1}
 		};
@@ -47,6 +47,8 @@ public class EdgeExtractor extends ImageProcessor {
 						int y = j - 1 + jj;
 						if (x >= 0 && x < width && y >=0 && y < height) {
 							sum += greyMatrix[x][y] * operator[ii][jj];
+						} else {
+							sum += greyMatrix[i][j] * operator[ii][jj];
 						}
 					}
 				}
@@ -57,6 +59,22 @@ public class EdgeExtractor extends ImageProcessor {
 		return res;
 	}
 	
+	public long[][] prewittFilter(String filename) {
+		int[][] filterX = operate(prewittOperatorX);
+		int[][] filterY = operate(prewittOperatorY);
+		long[][] res = new long[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				res[i][j] = (long) Math.pow(filterX[i][j] * filterX[i][j] + filterY[i][j] * filterY[i][j], 0.5);
+				if (res[i][j] >= GREY_SCALE_RANGE) {
+					res[i][j] = GREY_SCALE_RANGE - 1;
+				}
+			}
+		}
+		outputImage(filename + ".png", "png", getGreyImage(normalizeImage(res, GREY_SCALE_RANGE - 1)));
+		return res;
+	}
+	
 	public long[][] sobelFilter(String filename) {
 		int[][] filterX = operate(sobelOperatorX);
 		int[][] filterY = operate(sobelOperatorY);
@@ -64,9 +82,9 @@ public class EdgeExtractor extends ImageProcessor {
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
 				res[i][j] = (long) Math.pow(filterX[i][j] * filterX[i][j] + filterY[i][j] * filterY[i][j], 0.5);
-//				if (res[i][j] >= GREY_SCALE_RANGE) {
-//					res[i][j] = GREY_SCALE_RANGE - 1;
-//				}
+				if (res[i][j] >= GREY_SCALE_RANGE) {
+					res[i][j] = GREY_SCALE_RANGE - 1;
+				}
 			}
 		}
 		outputImage(filename + ".png", "png", getGreyImage(normalizeImage(res, GREY_SCALE_RANGE - 1)));

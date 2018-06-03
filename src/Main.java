@@ -25,7 +25,8 @@ public class Main {
 		fftProcessor.fourierInverse("", res);
 		
 		EdgeExtractor edgeExtractor = new EdgeExtractor(image);
-		//edgeExtractor.sobelFilter("sobel");
+		edgeExtractor.sobelFilter("sobel");
+		edgeExtractor.prewittFilter("perwitt");
 		edgeExtractor.laplaceFilter("laplace");
 		// DCT
 //		DCTProcessor dctProcessor = new DCTProcessor(image);	// create processor
