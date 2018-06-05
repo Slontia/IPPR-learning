@@ -141,7 +141,7 @@ public class EdgeExtractor extends ImageProcessor {
 		STRONG, WEAK, SUPPRESS, CERTAIN
 	}
 	
-	public void enhanceEdge(EdgeStatus[][] status, int i, int j) {
+	private void enhanceEdge(EdgeStatus[][] status, int i, int j) {
 		if (isValid(i, j) && status[i][j] == EdgeStatus.STRONG) {
 			status[i][j] = EdgeStatus.CERTAIN;
 			for (int ii = -1; ii <= 1; ii++) {
