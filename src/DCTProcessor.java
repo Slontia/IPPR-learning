@@ -45,12 +45,12 @@ public class DCTProcessor extends SignalTransformation {
 		double[][] res = new double[width][height];
 		double progress = 0;
 		for (int i = 0; i < width; i++) {
-			progress = (double) i / (height + width) * 100;
+			progress = (double) i / (height + width);
 			progressBar.showProgressStatus(progress);
 			res[i] = inverseFlag ? idct1d(sigs[i]) : dct1d(sigs[i]);
 		}
 		for (int j = 0; j < height; j++) {
-			progress = (double) (j + width) / (height + width) * 100;
+			progress = (double) (j + width) / (height + width);
 			progressBar.showProgressStatus(progress);
 			double[] col = new double[width];
 			for (int i = 0; i < width; i++) {

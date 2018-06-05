@@ -10,18 +10,18 @@ public class ProgressBar {
 	}
 	
 	public void showProgressStatus(double progress) {
-		System.out.println("qw");
-		int bar = (int) progress * 100 / barLen;
+		int bar = (int) (progress * barLen);
 		if (bar != lastBar) {
 			System.out.print(label + " ‖");
 			for (int i = 0; i < barLen; i++) {
 				if (i < bar) {
 					System.out.print("█");
 				} else {
-					System.out.print(" ");
+					System.out.print("░");
 				}
 			}
 			System.out.println("‖ ");
+			lastBar = bar;
 		}
 	}
 }

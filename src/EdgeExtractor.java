@@ -1,12 +1,8 @@
 import java.awt.image.BufferedImage;
-import java.nio.file.AccessDeniedException;
-import java.util.Set;
-
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 public class EdgeExtractor extends ImageProcessor {
 	final private int HIGH_THRESHOLD = GREY_SCALE_RANGE / 4;
-	final private int LOW_THRESHOLD = GREY_SCALE_RANGE / 16;
+	final private int LOW_THRESHOLD = GREY_SCALE_RANGE / 32;
 	final private double[][] guassOperator = 
 		{
 				{0.0924, 0.1192, 0.0924},
@@ -118,7 +114,7 @@ public class EdgeExtractor extends ImageProcessor {
 			}
 		}
 		new LinearStretcher(normalizeImage(res, GREY_SCALE_RANGE - 1))
-			.localStretch(filename, 0, GREY_SCALE_RANGE / 4, 0, GREY_SCALE_RANGE);
+			.localStretch(filename, 0, GREY_SCALE_RANGE / 8, 0, GREY_SCALE_RANGE);
 		return res;
 	}
 	
@@ -190,12 +186,13 @@ public class EdgeExtractor extends ImageProcessor {
 					x1 = i - 1;		y1 = j - 1;
 					x2 = i + 1;		y2 = j + 1;
 				}
-				if ((isValid(x1, y1) && intensity[x1][y1] > intensity[i][j]) ||
-						isValid(x2, y2) && intensity[x2][y2] > intensity[i][j]) { // if found one bigger than itself, clean it
+				if ((isValid(x1, y1) && intensity[x1][y1] >= intensity[i][j]) ||
+						isValid(x2, y2) && intensity[x2][y2] >= intensity[i][j]) { // if found one bigger than itself, clean it
 					intensity[i][j] = 0;
 				}
 			}
 		}
+		outputImage(filename + "(thin)", "png", getGreyImage(intensity));
 		// 双阈值检测
 		EdgeStatus status[][] = new EdgeStatus[width][height];
 		for (int i = 0; i < width; i++) {
