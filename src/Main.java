@@ -15,19 +15,25 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		String filename = "D:/test0.png";			// open file
-		BufferedImage image = readImage(filename);	// read file
-		
-		FFTProcessor fftProcessor = new FFTProcessor(image);
-		FourierComplex[][] res = fftProcessor.fourierTransformation("");
-		FrequencyFilter filter = new FrequencyFilter();
-		res = filter.filter(res, 20, 0);
-		fftProcessor.fourierInverse("", res);
-		
-		EdgeExtractor edgeExtractor = new EdgeExtractor(image);
-		edgeExtractor.sobelFilter("sobel");
-		edgeExtractor.prewittFilter("perwitt");
-		edgeExtractor.laplaceFilter("laplace");
+		int n = 5;
+		for (int i = 0; i < n; i++) {
+			BufferedImage image = readImage("D://test" + i + ".png");	// read file
+			
+//			FFTProcessor fftProcessor = new FFTProcessor(image);
+//			FourierComplex[][] res = fftProcessor.fourierTransformation();
+//			FrequencyFilter filter = new FrequencyFilter();
+//			res = filter.filter(res, 20, 0);
+//			fftProcessor.fourierInverse("fourier" + i, res);
+			
+			EdgeExtractor edgeExtractor = new EdgeExtractor(image);
+			edgeExtractor.sobelFilter(i + "sobel");
+			edgeExtractor.prewittFilter(i + "perwitt");
+			edgeExtractor.laplaceFilter(i + "laplace");
+			edgeExtractor.robertsFilter(i + "robert");
+			edgeExtractor.cannyFilter(i + "canny");
+			System.out.println(i);
+		}
+
 		// DCT
 //		DCTProcessor dctProcessor = new DCTProcessor(image);	// create processor
 //		double[][] sigs = dctProcessor.cosineTransformation("trans");				// DCT

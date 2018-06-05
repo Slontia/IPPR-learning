@@ -9,11 +9,13 @@ import javax.imageio.stream.ImageOutputStream;
 
 class ImageProcessor {
 	final public static int GREY_SCALE_RANGE = 256;
+	final public static int PROGRESS_BAR_LEN = 10;
 	final protected int[][] greyMatrix;
 	final protected int[][] saturMatrix;
 	final protected int[][] chromaMatrix;
 	final protected int height;
 	final protected int width;
+	ProgressBar progressBar;
 	
 	public ImageProcessor(BufferedImage image) {
         width = image.getWidth();
@@ -33,6 +35,18 @@ class ImageProcessor {
 				chromaMatrix[i][j] = (int)(0.5 * r - 0.418 * g - 0.0813 * b + 128);
             }
         }
+	}
+	
+	public ImageProcessor(int[][] greyMatrix) {
+		width = greyMatrix.length;
+		if (width == 0) {
+			height = 0;
+		} else {
+			height = greyMatrix[0].length;
+		}
+		this.greyMatrix = greyMatrix;
+		this.saturMatrix = new int[height][width];
+		this.chromaMatrix = new int[height][width];
 	}
 	
 	// @REQUIRES: greyMap must be a matrix
@@ -59,7 +73,7 @@ class ImageProcessor {
 	    ImageOutputStream ios;
 	    new File("output").mkdirs();
 		try {
-			ios = ImageIO.createImageOutputStream(new File("output/" + filename));
+			ios = ImageIO.createImageOutputStream(new File("output/" + filename + "." + type));
 			writer.setOutput(ios);
 			writer.write(image);
 			image.flush();
@@ -73,16 +87,16 @@ class ImageProcessor {
 		 return normalizeImage(matrix, Long.MAX_VALUE);
 	}
 	
-	protected int[][] normalizeImage(long[][] matrix, long edgeValue) {
-		int height = matrix.length;
-		if (height == 0 || edgeValue <= 0) {
+	static protected int[][] normalizeImage(long[][] matrix, long edgeValue) {
+		int width = matrix.length;
+		if (width == 0 || edgeValue <= 0) {
 			return null;
 		}
-		int width = matrix[0].length;
+		int height = matrix[0].length;
 		long maxValue = edgeValue;
 		long minValue = 0;
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
 				if (matrix[i][j] > maxValue) {
 					maxValue = matrix[i][j];
 				} else if (matrix[i][j] < minValue) {
@@ -91,9 +105,9 @@ class ImageProcessor {
 			}
 		}
 		double ratio = (double) (GREY_SCALE_RANGE - 1) / (maxValue - minValue);
-		int[][] res = new int[height][width];
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
+		int[][] res = new int[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
 				res[i][j] = (int) ((matrix[i][j] - minValue) * ratio);
 			}
 		}

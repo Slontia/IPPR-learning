@@ -8,6 +8,10 @@ class FFTProcessor extends SignalTransformation {
 		super(image);
 	}
 	
+	public FFTProcessor(int[][] greyMatrix) {
+		super(greyMatrix);
+	}
+	
 	private int roundPower(int x) {
 		if (((x - 1) & x) == 0) {
 			return x;
@@ -127,7 +131,7 @@ class FFTProcessor extends SignalTransformation {
 	}
 	
 	/** API **/
-	public FourierComplex[][] fourierTransformation(String outputlabel) {
+	public FourierComplex[][] fourierTransformation() {
 		if (height == 0 || width == 0) {
 			return null;
 		}
@@ -138,6 +142,11 @@ class FFTProcessor extends SignalTransformation {
 			}
 		}
 		FourierComplex[][] res = fft2d(sigs, false);
+		return res;
+	}
+	
+	public FourierComplex[][] fourierTransformation(String outputlabel) {
+		FourierComplex[][] res = fourierTransformation();
 		outputResult(outputlabel, res);
 		return res;
 	}
@@ -152,7 +161,7 @@ class FFTProcessor extends SignalTransformation {
 			}
 		}
 		BufferedImage image = getGreyImage(normalizeImage(greyMatrix, GREY_SCALE_RANGE - 1));
-		outputImage("FFT_Inverse_" + outputLabel + ".png", "png", image);
+		outputImage(outputLabel, "png", image);
 		outputResult(outputLabel, sigs);
 		return image;
 	}
@@ -177,8 +186,8 @@ class FFTProcessor extends SignalTransformation {
 		int[][] powerGreyMatrix = translation(normalizeImage(powerMatrix, POWER_EDGE), N, M);
 		int[][] rangeGreyMatrix = translation(normalizeImage(rangeMatrix, RANGE_EDGE), N, M);
 		int[][] phaseGreyMatrix = translation(normalizeMatrix(phaseMatrix), N, M);
-		outputImage("FFT_Power_" + outputLabel + ".png", "png", getGreyImage(powerGreyMatrix));
-		outputImage("FFT_Range_" + outputLabel + ".png", "png", getGreyImage(rangeGreyMatrix));
-		outputImage("FFT_Phase_" + outputLabel + ".png", "png", getGreyImage(phaseGreyMatrix));
+		outputImage(outputLabel + "(power)", "png", getGreyImage(powerGreyMatrix));
+		outputImage(outputLabel + "(range)", "png", getGreyImage(rangeGreyMatrix));
+		outputImage(outputLabel + "(phase)", "png", getGreyImage(phaseGreyMatrix));
 	}
 }

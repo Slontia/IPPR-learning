@@ -4,6 +4,10 @@ class LinearStretcher extends GreyTransformation {
 	public LinearStretcher(BufferedImage image) {
 		super(image);
 	}
+	
+	public LinearStretcher(int[][] greyMatrix) {
+		super(greyMatrix);
+	}
 
 	/** API **/
 	// @REQUIRES: valid scale

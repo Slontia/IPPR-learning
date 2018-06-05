@@ -6,5 +6,8 @@ public class SignalTransformation extends ImageProcessor{
 		super(image);
 	}
 	
+	public SignalTransformation(int[][] greyMatrix) {
+		super(greyMatrix);
+	}
 
 }

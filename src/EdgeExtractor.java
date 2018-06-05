@@ -1,31 +1,44 @@
 import java.awt.image.BufferedImage;
+import java.nio.file.AccessDeniedException;
+import java.util.Set;
+
+import org.omg.CORBA.PRIVATE_MEMBER;
 
 public class EdgeExtractor extends ImageProcessor {
-	final private int[][] sobelOperatorX =
+	final private int HIGH_THRESHOLD = GREY_SCALE_RANGE / 4;
+	final private int LOW_THRESHOLD = GREY_SCALE_RANGE / 16;
+	final private double[][] guassOperator = 
+		{
+				{0.0924, 0.1192, 0.0924},
+				{0.1192, 0.1538, 0.1192},
+				{0.0924, 0.1192, 0.0924}
+		};
+	
+	final private double[][] sobelOperatorX =
 		{
 				{-1, 0, 1},
 				{-2, 0, 2},
 				{-1, 0, 1}
 		};
-	final private int[][] sobelOperatorY = 
+	final private double[][] sobelOperatorY = 
 		{
 				{-1,	-2,	 -1},
 				{0,	 0,	 0},
 				{1,	 2,	 1}
 		};
-	final private int[][] laplaceOperator = 
+	final private double[][] laplaceOperator = 
 		{
 				{0, -1, 0},
 				{-1, 4, -1},
 				{0, -1, 0}
 		};
-	final private int[][] prewittOperatorX = 
+	final private double[][] prewittOperatorX = 
 		{
 				{-1, 0, 1},
 				{-1, 0, 1},
 				{-1, 0, 1}
 		};
-	final private int[][] prewittOperatorY = 
+	final private double[][] prewittOperatorY = 
 		{
 				{-1, -1, -1},
 				{0, 0, 0},
@@ -36,7 +49,7 @@ public class EdgeExtractor extends ImageProcessor {
 		super(image);
 	}
 	
-	private int[][] operate(int[][] operator) {
+	private int[][] operate(int[][] greyMatrix, double[][] operator) {
 		int[][] res = new int[width][height];
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -52,7 +65,6 @@ public class EdgeExtractor extends ImageProcessor {
 						}
 					}
 				}
-				// System.out.println(sum);
 				res[i][j] = sum;
 			}
 		}
@@ -60,8 +72,9 @@ public class EdgeExtractor extends ImageProcessor {
 	}
 	
 	public long[][] prewittFilter(String filename) {
-		int[][] filterX = operate(prewittOperatorX);
-		int[][] filterY = operate(prewittOperatorY);
+		int[][] guassFilter = operate(greyMatrix, guassOperator);
+		int[][] filterX = operate(guassFilter, prewittOperatorX);
+		int[][] filterY = operate(guassFilter, prewittOperatorY);
 		long[][] res = new long[width][height];
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -71,13 +84,14 @@ public class EdgeExtractor extends ImageProcessor {
 				}
 			}
 		}
-		outputImage(filename + ".png", "png", getGreyImage(normalizeImage(res, GREY_SCALE_RANGE - 1)));
+		outputImage(filename, "png", getGreyImage(normalizeImage(res, GREY_SCALE_RANGE - 1)));
 		return res;
 	}
 	
 	public long[][] sobelFilter(String filename) {
-		int[][] filterX = operate(sobelOperatorX);
-		int[][] filterY = operate(sobelOperatorY);
+		int[][] guassFilter = operate(greyMatrix, guassOperator);
+		int[][] filterX = operate(guassFilter, sobelOperatorX);
+		int[][] filterY = operate(guassFilter, sobelOperatorY);
 		long[][] res = new long[width][height];
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -87,12 +101,13 @@ public class EdgeExtractor extends ImageProcessor {
 				}
 			}
 		}
-		outputImage(filename + ".png", "png", getGreyImage(normalizeImage(res, GREY_SCALE_RANGE - 1)));
+		outputImage(filename, "png", getGreyImage(normalizeImage(res, GREY_SCALE_RANGE - 1)));
 		return res;
 	}
 	
 	public long[][] laplaceFilter(String filename) {
-		int[][] filter = operate(laplaceOperator);
+		int[][] guassFilter = operate(greyMatrix, guassOperator);
+		int[][] filter = operate(guassFilter, laplaceOperator);
 		long[][] res = new long[width][height];
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -102,7 +117,109 @@ public class EdgeExtractor extends ImageProcessor {
 				}
 			}
 		}
-		outputImage(filename + ".png", "png", getGreyImage(normalizeImage(res, GREY_SCALE_RANGE - 1)));
+		new LinearStretcher(normalizeImage(res, GREY_SCALE_RANGE - 1))
+			.localStretch(filename, 0, GREY_SCALE_RANGE / 4, 0, GREY_SCALE_RANGE);
 		return res;
+	}
+	
+	public long[][] robertsFilter(String filename) {
+		int[][] guassFilter = operate(greyMatrix, guassOperator);
+		long[][] res = new long[width][height];
+		for (int i = 0; i < width - 1; i++) {
+			for (int j = 0; j < height - 1; j++) {
+				int sub1 = guassFilter[i][j] - guassFilter[i+1][j+1];
+				int sub2 = guassFilter[i][j+1] - guassFilter[i+1][j];
+				res[i][j] = (long) Math.pow(sub1 * sub1 + sub2 * sub2, 0.5);
+			}
+		}
+		new LinearStretcher(normalizeImage(res, GREY_SCALE_RANGE - 1))
+			.localStretch(filename, 0, GREY_SCALE_RANGE / 4, 0, GREY_SCALE_RANGE);
+		return res;
+	}
+	
+	private boolean isValid(int x, int y) {
+		return x < width && y < height && x >= 0 && y >= 0;
+	}
+	
+	private enum EdgeStatus {
+		STRONG, WEAK, SUPPRESS, CERTAIN
+	}
+	
+	public void enhanceEdge(EdgeStatus[][] status, int i, int j) {
+		if (isValid(i, j) && status[i][j] == EdgeStatus.STRONG) {
+			status[i][j] = EdgeStatus.CERTAIN;
+			for (int ii = -1; ii <= 1; ii++) {
+				for (int jj = -1; jj <= 1; jj++) {
+					enhanceEdge(status, ii, jj);
+				}
+			}
+		}
+	}
+	
+	public int[][] cannyFilter(String filename) {
+		// 卷积
+		int[][] guassFilter = operate(greyMatrix, guassOperator);
+		// 计算初始边缘
+		int[][] filterX = operate(guassFilter, sobelOperatorX);
+		int[][] filterY = operate(guassFilter, sobelOperatorY);
+		int[][] intensity = new int[width][height];
+		double[][] angle = new double[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				intensity[i][j] = (int) Math.pow(filterX[i][j] * filterX[i][j] + filterY[i][j] * filterY[i][j], 0.5);
+				if (intensity[i][j] >= GREY_SCALE_RANGE) {
+					intensity[i][j] = GREY_SCALE_RANGE - 1;
+				}
+				angle[i][j] = Math.atan2(filterY[i][j], filterX[i][j]) / Math.PI * 180; // get angle
+			}
+		}
+		// 非极大值抑制
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				int x1, y1, x2, y2;
+				if (angle[i][j] <= -67.5 || angle[i][j] >= 67.5) { // left - right
+					x1 = i - 1;		y1 = j;
+					x2 = i + 1;		y2 = j;
+				} else if (angle[i][j] < -22.5) {	// left&top - right-bottom
+					x1 = i - 1;		y1 = j + 1;
+					x2 = i + 1;		y2 = j - 1;
+				} else if (angle[i][j] <= 22.5) {	// top - bottom
+					x1 = i;			y1 = j + 1;
+					x2 = i;			y2 = j - 1;
+				} else {	// left&bottom - right-top
+					x1 = i - 1;		y1 = j - 1;
+					x2 = i + 1;		y2 = j + 1;
+				}
+				if ((isValid(x1, y1) && intensity[x1][y1] > intensity[i][j]) ||
+						isValid(x2, y2) && intensity[x2][y2] > intensity[i][j]) { // if found one bigger than itself, clean it
+					intensity[i][j] = 0;
+				}
+			}
+		}
+		// 双阈值检测
+		EdgeStatus status[][] = new EdgeStatus[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				if (intensity[i][j] >= HIGH_THRESHOLD) {
+					status[i][j] = EdgeStatus.STRONG;
+				} else if (intensity[i][j] < LOW_THRESHOLD) {
+					status[i][j] = EdgeStatus.SUPPRESS;
+				} else {
+					status[i][j] = EdgeStatus.WEAK;
+				}
+			}
+		}
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				enhanceEdge(status, i, j);
+				if (status[i][j] != EdgeStatus.CERTAIN) {
+					intensity[i][j] = 0;
+				} else {
+					intensity[i][j] = GREY_SCALE_RANGE - 1;
+				}
+			}
+		}
+		outputImage(filename, "png", getGreyImage(intensity));
+		return intensity;
 	}
 }

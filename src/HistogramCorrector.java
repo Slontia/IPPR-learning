@@ -4,6 +4,11 @@ class HistogramCorrector extends GreyTransformation {
 	public HistogramCorrector(BufferedImage image) {
 		super(image);
 	}
+	
+	
+	public HistogramCorrector(int[][] greyMatrix) {
+		super(greyMatrix);
+	}
 
 	/** API **/
 	public BufferedImage histogramCorrection(String outputLabel, int partNum) {

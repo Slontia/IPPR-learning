@@ -7,6 +7,10 @@ public class GreyTransformation extends ImageProcessor {
 		super(image);
 	}
 	
+	public GreyTransformation(int[][] greyMatrix) {
+		super(greyMatrix);
+	}
+	
 	protected int[] getEdgeGreyScale(int[] greyCounts) {
 		int minScale, maxScale;
         for (minScale = 0;
@@ -68,10 +72,10 @@ public class GreyTransformation extends ImageProcessor {
         return graph;  
 	}
 	
-	protected BufferedImage outputResult(String outputLabel, int[][] greyMatrix) {
+	protected BufferedImage outputResult(String filename, int[][] greyMatrix) {
 		BufferedImage image = getGreyImage(greyMatrix);
-        outputImage("grey_" + outputLabel + ".png", "png", image);
-        outputImage("hist_" + outputLabel + ".png", "png", getHist(getGreyCounts(greyMatrix)));
+        outputImage(filename, "png", image);
+        outputImage(filename + "(hist)", "png", getHist(getGreyCounts(greyMatrix)));
         return image;
 	}
 }
